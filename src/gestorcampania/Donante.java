@@ -28,9 +28,7 @@ public class Donante {
         return tipoSangre;
     }
 
-    public void setRut(String rut){
-        this.rut = rut;
-    }
+    
     public void setNombreDonante(String nombreDonante){
         this.nombreDonante = nombreDonante;
     }

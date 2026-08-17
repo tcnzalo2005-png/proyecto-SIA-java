@@ -29,9 +29,6 @@ public class Campania {
     }
    
 
-    public void setIdCampania(int idAGuardas){
-        idCampania = idAGuardas;
-    }
     public void setNombreCampania(String nombreAGuardar){
         nombreCampania = nombreAGuardar;
     }
