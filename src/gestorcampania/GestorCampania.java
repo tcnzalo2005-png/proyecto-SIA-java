@@ -39,7 +39,7 @@ public class GestorCampania {
             System.out.println("Fecha: " + mostrar.getFecha());
         }
     }   
-    public void mofificarCampania(int idCampania, String nombreCampania, Date fecha){
+    public void mofificarCampania(int idCampania, String nombreCampania, LocalDate fecha){
         Campania aModificar = buscarCampania(idCampania);
         if(aModificar != null){
             aModificar.setNombreCampania(nombreCampania);

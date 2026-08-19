@@ -24,7 +24,7 @@ public class Campania {
     public String getNombreCampania(){
         return nombreCampania;
     }
-    public Date getFecha(){
+    public LocalDate getFecha(){
         return fecha;
     }
    
