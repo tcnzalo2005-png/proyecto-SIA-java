@@ -50,6 +50,6 @@ public class GestorCampania {
 
 
     public static void main(String[] args){
-
+        
     }
 }

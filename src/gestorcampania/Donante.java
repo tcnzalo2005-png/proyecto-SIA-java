@@ -32,9 +32,14 @@ public class Donante {
     public void setNombreDonante(String nombreDonante){
         this.nombreDonante = nombreDonante;
     }
+
     public void setDonacion(int donacion){
         this.donacion = donacion;
     }
+    public void setDonacion(double donacion){
+        this.donacion = (int) (Math.round(donacion));
+    }
+
     public void setTipoSangre(Sangre tipoSangre){
         this.tipoSangre = tipoSangre;
     }
