@@ -8,10 +8,15 @@ public class GestorCampania {
     public GestorCampania(){
         this.listaCampania = new ArrayList<>();
     }
-    public void crearCampania(int idCampania, String nombreCampania, Date fecha){
+    public void crearCampania(int idCampania, String nombreCampania, LocalDate fecha){
         Campania nuevo = new Campania(idCampania, nombreCampania, fecha);
         listaCampania.add(nuevo);
     }
+    public void crearCampania(int idCampania, String nombreCampania){
+        Campania nuevo = new Campania(idCampania, nombreCampania, LocalDate.now());
+        listaCampania.add(nuevo);
+    }
+
     public Campania buscarCampania(int idBuscar){
         for(Campania i : listaCampania){
             if(i.getIdCampania() == idBuscar){
@@ -33,7 +38,7 @@ public class GestorCampania {
             System.out.println("Nombre campania: " + mostrar.getNombreCampania());
             System.out.println("Fecha: " + mostrar.getFecha());
         }
-    }
+    }   
     public void mofificarCampania(int idCampania, String nombreCampania, Date fecha){
         Campania aModificar = buscarCampania(idCampania);
         if(aModificar != null){
@@ -41,5 +46,10 @@ public class GestorCampania {
             aModificar.setFecha(fecha);
         }
     }
+    
 
+
+    public static void main(String[] args){
+
+    }
 }

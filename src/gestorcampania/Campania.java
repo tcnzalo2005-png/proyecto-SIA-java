@@ -5,13 +5,13 @@ import java.time.LocalDate;
 public class Campania {
     private int idCampania;
     private String nombreCampania;
-    private Date fecha;
+    private LocalDate fecha;
     private HashMap<String , Donante> donantesPorRut;
     
     public Campania(){
         this.donantesPorRut = new HashMap<>();
     }
-    public Campania(int idCampania, String nombreCampania , Date fecha){
+    public Campania(int idCampania, String nombreCampania , LocalDate fecha){
         this.idCampania = idCampania;
         this.nombreCampania = nombreCampania;
         this.fecha = fecha;
@@ -32,7 +32,7 @@ public class Campania {
     public void setNombreCampania(String nombreAGuardar){
         nombreCampania = nombreAGuardar;
     }
-    public void setFecha(Date fechaAGuardar){
+    public void setFecha(LocalDate fechaAGuardar){
         fecha = fechaAGuardar;
     }
     
@@ -41,6 +41,11 @@ public class Campania {
         Donante nuevo = new Donante(rut, nombreDonante, tipoSangre, donacion);
         donantesPorRut.put(rut , nuevo);
     }
+    public void crearDonante(String rut, String nombreDonante, Sangre tipoSangre){
+        Donante nuevo = new Donante(rut, nombreDonante, tipoSangre, 0);
+        donantesPorRut.put(rut, nuevo);
+    }
+    
     public void eliminarDonante(String rut){
         donantesPorRut.remove(rut);
     }
