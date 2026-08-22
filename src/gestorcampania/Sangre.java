@@ -1,4 +1,3 @@
-
 package gestorcampania;
 
 public enum Sangre {
