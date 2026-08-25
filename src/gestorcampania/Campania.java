@@ -2,15 +2,12 @@ package gestorcampania;
 import java.util.*;
 import java.time.LocalDate;
 
-public class Campania {
+public abstract class Campania {
     private int idCampania;
     private String nombreCampania;
     private LocalDate fecha;
     private HashMap<String , Donante> donantesPorRut;
     
-    public Campania(){
-        this.donantesPorRut = new HashMap<>();
-    }
     public Campania(int idCampania, String nombreCampania , LocalDate fecha){
         this.idCampania = idCampania;
         this.nombreCampania = nombreCampania;
@@ -54,10 +51,7 @@ public class Campania {
     }
     public void mostrarDonante(){
         for(Donante i : donantesPorRut.values()){
-            System.out.println("Rut: " + i.getRut());
-            System.out.println("Nombre: " + i.getNombreDonante());
-            System.out.println("Tipo sangre: " + i.getTipoSangre());
-            System.out.println("Donacion: " + i.getDonacion());
+            i.mostrar();
         }
     }
     public void modificarDonante(String rut, String nombreDonante, Sangre tipoSangre, int donacion){
@@ -70,4 +64,6 @@ public class Campania {
         }
     }
     
+
+    public abstract void mostrarCampania();
 }

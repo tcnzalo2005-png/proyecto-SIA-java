@@ -9,11 +9,19 @@ public class GestorCampania {
         this.listaCampania = new ArrayList<>();
     }
     public void crearCampania(int idCampania, String nombreCampania, LocalDate fecha){
-        Campania nuevo = new Campania(idCampania, nombreCampania, fecha);
+        CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha);
         listaCampania.add(nuevo);
     }
     public void crearCampania(int idCampania, String nombreCampania){
-        Campania nuevo = new Campania(idCampania, nombreCampania, LocalDate.now());
+        CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, LocalDate.now());
+        listaCampania.add(nuevo);
+    }
+    public void crearCampania(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
+        CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, fecha, ubicacion);
+        listaCampania.add(nuevo);
+    }
+    public void crearCampania(int idCampania, String nombreCampania, String ubicacion){
+        CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, LocalDate.now(), ubicacion);
         listaCampania.add(nuevo);
     }
 
@@ -31,21 +39,29 @@ public class GestorCampania {
             listaCampania.remove(eliminar);
         }
     }
-    public void mostrarCampania(int idBuscar){
-        Campania mostrar = buscarCampania(idBuscar);
-        if(mostrar != null){
-            System.out.println("ID campania: " + mostrar.getIdCampania());
-            System.out.println("Nombre campania: " + mostrar.getNombreCampania());
-            System.out.println("Fecha: " + mostrar.getFecha());
+    public void mostrarCampania(){
+        for(Campania c : listaCampania){
+            c.mostrarCampania();
+            System.out.println("------------------------------");
         }
     }   
-    public void mofificarCampania(int idCampania, String nombreCampania, LocalDate fecha){
+    public void modificarCampania(int idCampania, String nombreCampania, LocalDate fecha){
         Campania aModificar = buscarCampania(idCampania);
         if(aModificar != null){
-            aModificar.setNombreCampania(nombreCampania);
-            aModificar.setFecha(fecha);
+            if(aModificar instanceof CampaniaFija){
+                ((CampaniaFija)aModificar).modificarCampania(nombreCampania, fecha);
+            }
         }
     }
+    public void agregarUbiCampaniaMovil(int idCampania, String ubicacion){
+        Campania aux = buscarCampania(idCampania);
+        if(aux != null){
+            if(aux instanceof CampaniaMovil){
+                ((CampaniaMovil)aux).setUbicacion(ubicacion);
+            }
+        }
+    }
+    
     
 
 

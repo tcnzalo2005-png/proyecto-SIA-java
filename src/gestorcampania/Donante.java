@@ -43,4 +43,11 @@ public class Donante {
     public void setTipoSangre(Sangre tipoSangre){
         this.tipoSangre = tipoSangre;
     }
+
+    public void mostrar(){
+        System.out.println("Rut: " + getRut());
+        System.out.println("Nombre: " + getNombreDonante());
+        System.out.println("Tipo sangre: " + getTipoSangre());
+        System.out.println("Donacion: " + getDonacion());
+    }
 }
