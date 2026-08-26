@@ -8,19 +8,19 @@ public class GestorCampania {
     public GestorCampania(){
         this.listaCampania = new ArrayList<>();
     }
-    public void crearCampania(int idCampania, String nombreCampania, LocalDate fecha){
-        CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha);
+    public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
+        CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
         listaCampania.add(nuevo);
     }
-    public void crearCampania(int idCampania, String nombreCampania){
-        CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, LocalDate.now());
+    public void crearCampaniaFija(int idCampania, String nombreCampania, String ubicacion){
+        CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, LocalDate.now(), ubicacion);
         listaCampania.add(nuevo);
     }
-    public void crearCampania(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
+    public void crearCampaniaMovil(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, fecha, ubicacion);
         listaCampania.add(nuevo);
     }
-    public void crearCampania(int idCampania, String nombreCampania, String ubicacion){
+    public void crearCampaniaMovil(int idCampania, String nombreCampania, String ubicacion){
         CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, LocalDate.now(), ubicacion);
         listaCampania.add(nuevo);
     }

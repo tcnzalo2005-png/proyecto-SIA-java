@@ -1,4 +1,5 @@
 package gestorcampania;
+
 import java.util.*;
 import java.time.LocalDate;
 
@@ -6,7 +7,7 @@ public abstract class Campania {
     private int idCampania;
     private String nombreCampania;
     private LocalDate fecha;
-    private HashMap<String , Donante> donantesPorRut;
+    private HashMap<String, Donante> donantesPorRut;
     
     public Campania(int idCampania, String nombreCampania , LocalDate fecha){
         this.idCampania = idCampania;

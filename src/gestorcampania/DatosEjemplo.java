@@ -1,16 +1,16 @@
 package gestorcampania;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class DatosEjemplo
 {
-    public static void poblar(ArrayList<Campania> campanias)
+    public static void poblar()
     {
-        Campania campania = new Campania(
+        CampaniaFija campania = new CampaniaFija(
             0,
-            "Personas Historicas",
-            LocalDate.of(2000, 1, 1)
+            "Donadores de la historia",
+            LocalDate.of(2000, 1, 1),
+            "Santiago de Chile"
         );
 
         campania.crearDonante("11.111.111-1", "Bernardo O'Higgins", Sangre.O_POSITIVO, 450);
@@ -33,7 +33,5 @@ public class DatosEjemplo
         campania.crearDonante("90.909.090-9", "Arturo Alessandri Palma", Sangre.A_NEGATIVO, 400);
         campania.crearDonante("12.345.678-5", "Pedro Aguirre Cerda", Sangre.B_POSITIVO, 350);
         campania.crearDonante("98.765.432-1", "Jorge Alessandri Rodríguez", Sangre.O_POSITIVO, 450);
-
-        campanias.add(campania);
     }
 }
