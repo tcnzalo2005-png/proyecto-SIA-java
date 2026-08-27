@@ -6,7 +6,7 @@ public class GestorCampania {
     private ArrayList<Campania> listaCampania;
     
     public GestorCampania(){
-        this.listaCampania = new ArrayList<>();
+        listaCampania = new ArrayList<>();
     }
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
@@ -62,10 +62,10 @@ public class GestorCampania {
         }
     }
     
-    
-
-
     public static void main(String[] args){
-        
+        GestorCampania gestor = new GestorCampania();
+
+        /* Crear datos de ejemplo */
+        gestor.listaCampania.add(DatosEjemplo.poblar());
     }
 }
