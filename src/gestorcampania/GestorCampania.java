@@ -8,6 +8,18 @@ public class GestorCampania {
     public GestorCampania(){
         listaCampania = new ArrayList<>();
     }
+    public int TotalSangreDonda() {
+       for(int i = 0 ; i < listaCampanias.size(); i++) {
+           Campania campania = listaCampanias.get(i);
+           ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantes().values());
+           for (int j = 0; j < listaDonantes.size(); j++) {
+               Donante donante = listaDonantes.get(j);
+               totalSangre = totalSangre + donante.getDonacion();
+           }
+
+        }
+        return totalSangre;
+    }
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
         listaCampania.add(nuevo);
