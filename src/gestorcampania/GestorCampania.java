@@ -20,6 +20,8 @@ public class GestorCampania {
         }
         return totalSangre;
     }
+
+    
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
         listaCampania.add(nuevo);
