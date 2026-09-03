@@ -50,21 +50,22 @@ public abstract class Campania {
     public Donante buscarDonante(String rut){
         return donantesPorRut.get(rut);
     }
-    public void mostrarDonante(){
+    public String mostrarDonante(){
+        String cosa = "";
         for(Donante i : donantesPorRut.values()){
-            i.mostrar();
+            cosa += i.mostrar();
         }
+        return cosa;
     }
     public void modificarDonante(String rut, String nombreDonante, Sangre tipoSangre, int donacion){
         Donante d = donantesPorRut.get(rut);
         
         if(d != null){
-            d.setNombreDonante(nombreDonante);
-            d.setTipoSangre(tipoSangre);
-            d.setDonacion(donacion);
+            donantesPorRut.modificarDonante(nombreDonante, tipoSangre, donacion);
         }
     }
     
 
     public abstract void mostrarCampania();
+    public abstract  void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion);
 }

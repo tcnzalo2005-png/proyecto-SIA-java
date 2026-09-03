@@ -9,17 +9,25 @@ public class CampaniaFija extends Campania {
         super(idCampania, nombreCampania, fecha);
         this.ubicacion = ubicacion;
     }
+    public void setUbicacion(String ubicacion){
+        this.ubicacion = ubicacion;
+    }
+    public String getUbicacion(){
+        return ubicacion;
+    }
 
     @Override
     public String mostrarCampania(){
-        return  "Id campaña: " + getIdCampania();
-                "Nombre campaña: " + getNombreCampania();
-                "Fecha campaña: " + getFecha();
-                "Ubicacion: " + ubicacion;
+        return  "Id campaña: " + getIdCampania() +
+                "\nNombre campaña: " + getNombreCampania() +
+                "\nFecha campaña: " + getFecha() +
+                "\nUbicacion: " + ubicacion;
     }
     
-    public void modificarCampania(String nombreCampania, LocalDate fecha){
+    @Override
+    public void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion){
         setNombreCampania(nombreCampania);
         setFecha(fecha);
+        setUbicacion(ubicacion);
     }
 }

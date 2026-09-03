@@ -8,7 +8,7 @@ public class GestorCampania {
     public GestorCampania(){
         listaCampania = new ArrayList<>();
     }
-    public int TotalSangreDonada() {
+    public int totalSangreDonada() {
        for(int i = 0 ; i < listaCampanias.size(); i++) {
            Campania campania = listaCampanias.get(i);
            ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantes().values());
@@ -53,26 +53,19 @@ public class GestorCampania {
             listaCampania.remove(eliminar);
         }
     }
-    public void mostrarCampania(){
+    public String mostrarCampania(){
+        String cosa = "";
         for(Campania c : listaCampania){
-            c.mostrarCampania();
-            System.out.println("------------------------------");
+            cosa += c.mostrarCampania();
+            cosa += "\n------------------------------\n";
         }
+        return cosa;
     }   
-    public void modificarCampania(int idCampania, String nombreCampania, LocalDate fecha){
+    public void modificarCampanias(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         Campania aModificar = buscarCampania(idCampania);
+
         if(aModificar != null){
-            if(aModificar instanceof CampaniaFija){
-                ((CampaniaFija)aModificar).modificarCampania(nombreCampania, fecha);
-            }
-        }
-    }
-    public void agregarUbiCampaniaMovil(int idCampania, String ubicacion){
-        Campania aux = buscarCampania(idCampania);
-        if(aux != null){
-            if(aux instanceof CampaniaMovil){
-                ((CampaniaMovil)aux).setUbicacion(ubicacion);
-            }
+            aModificar.modificarCampania(nombreCampania, fecha, ubicacion);
         }
     }
     

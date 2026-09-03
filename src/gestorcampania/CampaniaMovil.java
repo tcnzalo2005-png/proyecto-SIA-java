@@ -16,6 +16,7 @@ public class CampaniaMovil extends Campania {
         this.ubicaciones.add(ubicacion);
     }
 
+    @Override
     public void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion){
         setNombreCampania(nombreCampania);
         setFecha(fecha);
@@ -24,13 +25,13 @@ public class CampaniaMovil extends Campania {
 
     @Override
     public String mostrarCampania() {
-        String datos = "Id campaña: " + getIdCampania() + "\n" +
-                    "Nombre campaña: " + getNombreCampania() + "\n" +
-                    "Fecha campaña: " + getFecha() + "\n" +
-                    "Ubicaciones: ";
+        String datos = "Id campaña: " + getIdCampania() +
+                    "\nNombre campaña: " + getNombreCampania() +
+                    "\nFecha campaña: " + getFecha() +
+                    "\nUbicaciones: ";
 
         for (String i : ubicaciones) {
-            datos += "Ubicacion: " + i + " - ";
+            datos += "\n   " + i;
         }
 
         return datos;

@@ -45,9 +45,15 @@ public class Donante {
     }
 
     public String mostrar(){
-        return  "Rut: " + getRut();
-                "Nombre: " + getNombreDonante();
-                "Tipo sangre: " + getTipoSangre();
-                "Donacion: " + getDonacion();
+        return  "Rut: " + getRut() +
+                "\nNombre: " + getNombreDonante() +
+                "\nTipo sangre: " + getTipoSangre() +
+                "\nDonacion: " + getDonacion();
+    }
+
+    public void modificarDonante(String nombreDonante, Sangre tipoSangre, int donacion){
+        setNombreDonante(nombreDonante);
+        setTipoSangre(tipoSangre);
+        setDonacion(donacion);
     }
 }
