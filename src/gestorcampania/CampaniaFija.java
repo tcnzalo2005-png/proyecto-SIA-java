@@ -6,16 +6,16 @@ public class CampaniaFija extends Campania {
     private String ubicacion;
     
     public CampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
-        this.ubicacion = ubicacion;
         super(idCampania, nombreCampania, fecha);
+        this.ubicacion = ubicacion;
     }
 
     @Override
-    public void mostrarCampania(){
-        System.out.println("Id campaña: " + getIdCampania());
-        System.out.println("Nombre campaña: " + getNombreCampania());
-        System.out.println("Fecha campaña: " + getFecha());
-        System.out.println("Ubicacion: " + ubicacion);
+    public String mostrarCampania(){
+        return  "Id campaña: " + getIdCampania();
+                "Nombre campaña: " + getNombreCampania();
+                "Fecha campaña: " + getFecha();
+                "Ubicacion: " + ubicacion;
     }
     
     public void modificarCampania(String nombreCampania, LocalDate fecha){

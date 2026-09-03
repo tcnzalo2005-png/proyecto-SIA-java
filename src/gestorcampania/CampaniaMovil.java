@@ -23,12 +23,16 @@ public class CampaniaMovil extends Campania {
     }
 
     @Override
-    public void mostrarCampania(){
-        System.out.println("Id campaña: " + getIdCampania());
-        System.out.println("Nombre campaña: " + getNombreCampania());
-        System.out.println("Fecha campaña: " + getFecha());
-        for(String i : ubicaciones){
-            System.out.print("Ubicacion: " + i +" - ");
+    public String mostrarCampania() {
+        String datos = "Id campaña: " + getIdCampania() + "\n" +
+                    "Nombre campaña: " + getNombreCampania() + "\n" +
+                    "Fecha campaña: " + getFecha() + "\n" +
+                    "Ubicaciones: ";
+
+        for (String i : ubicaciones) {
+            datos += "Ubicacion: " + i + " - ";
         }
+
+        return datos;
     }
 }

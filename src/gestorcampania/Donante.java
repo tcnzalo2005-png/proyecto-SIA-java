@@ -44,10 +44,10 @@ public class Donante {
         this.tipoSangre = tipoSangre;
     }
 
-    public void mostrar(){
-        System.out.println("Rut: " + getRut());
-        System.out.println("Nombre: " + getNombreDonante());
-        System.out.println("Tipo sangre: " + getTipoSangre());
-        System.out.println("Donacion: " + getDonacion());
+    public String mostrar(){
+        return  "Rut: " + getRut();
+                "Nombre: " + getNombreDonante();
+                "Tipo sangre: " + getTipoSangre();
+                "Donacion: " + getDonacion();
     }
 }
