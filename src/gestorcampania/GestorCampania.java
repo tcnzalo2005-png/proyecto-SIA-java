@@ -8,7 +8,7 @@ public class GestorCampania {
     public GestorCampania(){
         listaCampania = new ArrayList<>();
     }
-    public int TotalSangreDonda() {
+    public int TotalSangreDonada() {
        for(int i = 0 ; i < listaCampanias.size(); i++) {
            Campania campania = listaCampanias.get(i);
            ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantes().values());
