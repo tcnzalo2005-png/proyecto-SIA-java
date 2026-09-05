@@ -34,23 +34,23 @@ public class GestorCampania {
         return totalPersonas;
     }
 
-    public int totalSangreDonadaPorTipo(Sangre tipoSangre) {
-    int totalPorTipo = 0;
+      public int totalSangreDonadaPorTipo(Sangre tipoSangre) {
+        int totalPorTipo = 0;
     
-    for (int i = 0; i < listaCampanias.size(); i++) {
+        for (int i = 0; i < listaCampanias.size(); i++) {
         Campania campania = listaCampanias.get(i);
-        ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantes().values());
+        ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantesPorRut().values());
         
         for (int j = 0; j < listaDonantes.size(); j++) {
             Donante donante = listaDonantes.get(j);
             if (donante.getTipoSangre() == tipoSangre) {
                 totalPorTipo = totalPorTipo + donante.getDonacion();
+                }
             }
         }
-    }
     
-    return totalPorTipo;
-}
+        return totalPorTipo;
+    }
     
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
