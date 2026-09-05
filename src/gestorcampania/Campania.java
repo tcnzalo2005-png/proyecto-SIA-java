@@ -25,6 +25,9 @@ public abstract class Campania {
     public LocalDate getFecha(){
         return fecha;
     }
+    public HashMap<String, Donante> getDonantesPorRut(){
+        return donantesPorRut;
+    }
    
 
     public void setNombreCampania(String nombreAGuardar){
@@ -54,6 +57,7 @@ public abstract class Campania {
         String cosa = "";
         for(Donante i : donantesPorRut.values()){
             cosa += i.mostrar();
+            cosa += "\n------------------------------\n";
         }
         return cosa;
     }
@@ -61,11 +65,11 @@ public abstract class Campania {
         Donante d = donantesPorRut.get(rut);
         
         if(d != null){
-            donantesPorRut.modificarDonante(nombreDonante, tipoSangre, donacion);
+            d.modificarDonante(nombreDonante, tipoSangre, donacion);
         }
     }
     
 
-    public abstract void mostrarCampania();
+    public abstract String mostrarCampania();
     public abstract  void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion);
 }

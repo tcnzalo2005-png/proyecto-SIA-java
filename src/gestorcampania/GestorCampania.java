@@ -1,17 +1,19 @@
 package gestorcampania;
+import gestorcampania.Vent.MenuVentana;
 import java.util.*;
 import java.time.LocalDate;
 
 public class GestorCampania {
-    private ArrayList<Campania> listaCampania;
+    private ArrayList<Campania> listaCampanias;
     
     public GestorCampania(){
-        listaCampania = new ArrayList<>();
+        listaCampanias = new ArrayList<>();
     }
     public int totalSangreDonada() {
+        int totalSangre = 0;
        for(int i = 0 ; i < listaCampanias.size(); i++) {
            Campania campania = listaCampanias.get(i);
-           ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantes().values());
+           ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantesPorRut().values());
            for (int j = 0; j < listaDonantes.size(); j++) {
                Donante donante = listaDonantes.get(j);
                totalSangre = totalSangre + donante.getDonacion();
@@ -24,23 +26,27 @@ public class GestorCampania {
     
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
-        listaCampania.add(nuevo);
+        if(nuevo != null){
+            listaCampanias.add(nuevo);
+        }
     }
     public void crearCampaniaFija(int idCampania, String nombreCampania, String ubicacion){
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, LocalDate.now(), ubicacion);
-        listaCampania.add(nuevo);
+        listaCampanias.add(nuevo);
     }
     public void crearCampaniaMovil(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, fecha, ubicacion);
-        listaCampania.add(nuevo);
+        if(nuevo != null){
+            listaCampanias.add(nuevo);
+        }
     }
     public void crearCampaniaMovil(int idCampania, String nombreCampania, String ubicacion){
         CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, LocalDate.now(), ubicacion);
-        listaCampania.add(nuevo);
+        listaCampanias.add(nuevo);
     }
 
     public Campania buscarCampania(int idBuscar){
-        for(Campania i : listaCampania){
+        for(Campania i : listaCampanias){
             if(i.getIdCampania() == idBuscar){
                 return i;
             }
@@ -50,12 +56,12 @@ public class GestorCampania {
     public void eliminarCampania(int idBuscar){
         Campania eliminar = buscarCampania(idBuscar);
         if(eliminar != null){
-            listaCampania.remove(eliminar);
+            listaCampanias.remove(eliminar);
         }
     }
     public String mostrarCampania(){
         String cosa = "";
-        for(Campania c : listaCampania){
+        for(Campania c : listaCampanias){
             cosa += c.mostrarCampania();
             cosa += "\n------------------------------\n";
         }
@@ -71,8 +77,25 @@ public class GestorCampania {
     
     public static void main(String[] args){
         GestorCampania gestor = new GestorCampania();
-
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
         /* Crear datos de ejemplo */
-        gestor.listaCampania.add(DatosEjemplo.poblar());
+        gestor.listaCampanias.add(DatosEjemplo.poblar());
+        
+        System.out.println("Ventana o consola");
+        System.out.println("1.-Consola");
+        System.out.println("2.-Ventana");
+        opcion = scanner.nextInt();
+        
+        if(opcion == 1){
+            System.out.println("ingreso a consola...");
+        }else if(opcion == 2){
+            MenuVentana vent = new MenuVentana(gestor);
+            vent.setVisible(true);
+            vent.setLocationRelativeTo(null);
+        }
+        
+        
+        scanner.close();
     }
 }
