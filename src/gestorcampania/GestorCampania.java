@@ -22,7 +22,37 @@ public class GestorCampania {
         }
         return totalSangre;
     }
+    
+    public int totalDonadores(){
+        int totalPersonas = 0 ;
 
+        for(int i = 0; i < listaCampanias.size(); i++){
+            Campania campania = listaCampanias.get(i);
+
+            totalPersonas = totalPersonas + campania.getDonantes().size();
+        }
+
+        return totalPersonas;
+
+    }
+
+    public int totalSangreDonadaPorTipo(Sangre tipoSangre) {
+    int totalPorTipo = 0;
+    
+    for (int i = 0; i < listaCampanias.size(); i++) {
+        Campania campania = listaCampanias.get(i);
+        ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantes().values());
+        
+        for (int j = 0; j < listaDonantes.size(); j++) {
+            Donante donante = listaDonantes.get(j);
+            if (donante.getTipoSangre() == tipoSangre) {
+                totalPorTipo = totalPorTipo + donante.getDonacion();
+            }
+        }
+    }
+    
+    return totalPorTipo;
+}
     
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
