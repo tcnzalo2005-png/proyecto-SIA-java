@@ -11,7 +11,7 @@ public class GestorCampania {
     }
     public int totalSangreDonada() {
         int totalSangre = 0;
-       for(int i = 0 ; i < listaCampanias.size(); i++) {
+        for(int i = 0 ; i < listaCampanias.size(); i++) {
            Campania campania = listaCampanias.get(i);
            ArrayList<Donante> listaDonantes = new ArrayList<>(campania.getDonantesPorRut().values());
            for (int j = 0; j < listaDonantes.size(); j++) {
@@ -24,16 +24,14 @@ public class GestorCampania {
     }
     
     public int totalDonadores(){
-        int totalPersonas = 0 ;
+        int totalPersonas = 0;
 
         for(int i = 0; i < listaCampanias.size(); i++){
             Campania campania = listaCampanias.get(i);
-
-            totalPersonas = totalPersonas + campania.getDonantes().size();
+            totalPersonas = totalPersonas + campania.getDonantesPorRut().size();
         }
 
         return totalPersonas;
-
     }
 
     public int totalSangreDonadaPorTipo(Sangre tipoSangre) {
