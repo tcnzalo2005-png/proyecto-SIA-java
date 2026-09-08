@@ -1,6 +1,7 @@
 package gestorcampania;
 
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Consola
 {
@@ -167,17 +168,154 @@ public class Consola
 
     private void crearCampaniaFija(GestorCampania gestor)
     {
+        int opcion = 0;
+
+        System.out.println(" ===== CREAR CAMPAÑA FIJA =====");
+
+        System.out.print("ID Campaña: ");
+        int id = entrada.nextInt();
+        entrada.nextLine();
+
+        System.out.print("Nombre campaña: ");
+        String nombre = entrada.nextLine();
+
+        System.out.print("Ubicacion: ");
+        String ubicacion = entrada.nextLine();
+
+        System.out.println("¿Desea utilizar la fecha actual?");
+        System.out.println("""
+            1- Si
+            2- No
+            """);
         
+        System.out.print("Opcion: ");
+        opcion = entrada.nextInt();
+        if(opcion == 1)
+            gestor.crearCampaniaFija(id, nombre, ubicacion);
+
+        else
+        {
+            System.out.println("Dia: ");
+            int dia = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.println("Mes: ");
+            int mes = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.println("Año: ");
+            int anio = entrada.nextInt();
+            entrada.nextLine();
+
+            LocalDate fecha = LocalDate.of(anio, mes, dia);
+
+            gestor.crearCampaniaFija(id, nombre, fecha, ubicacion);
+        }
     }
 
     private void crearCampaniaMovil(GestorCampania gestor)
     {
+        int opcion = 0;
 
+        System.out.println(" ===== CREAR CAMPAÑA MOVIL =====");
+
+        System.out.print("ID Campaña: ");
+        int id = entrada.nextInt();
+        entrada.nextLine();
+
+        System.out.print("Nombre campaña: ");
+        String nombre = entrada.nextLine();
+
+        System.out.print("Ubicacion: ");
+        String ubicacion = entrada.nextLine();
+
+        System.out.println("¿Desea utilizar la fecha actual?");
+        System.out.println("""
+            1- Si
+            2- No
+            """);
+        
+        System.out.print("Opcion: ");
+        opcion = entrada.nextInt();
+        if(opcion == 1)
+            gestor.crearCampaniaMovil(id, nombre, ubicacion);
+
+        else
+        {
+            System.out.println("Dia: ");
+            int dia = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.println("Mes: ");
+            int mes = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.println("Año: ");
+            int anio = entrada.nextInt();
+            entrada.nextLine();
+
+            LocalDate fecha = LocalDate.of(anio, mes, dia);
+
+            gestor.crearCampaniaMovil(id, nombre, fecha, ubicacion);
+        }
     }
 
     private void modificarCampania(GestorCampania gestor)
     {
+        int opcion = 0;
+        LocalDate fecha;
 
+        System.out.println(" ===== MODIFICAR CAMPAÑA =====");
+
+        System.out.print("ID Campaña: ");
+        int id = entrada.nextInt();
+        entrada.nextLine();
+
+        Campania campania = gestor.buscarCampania(id);
+
+        if(campania == null)
+        {
+            System.out.println("No se encontro la campaña deseada\n");
+            return;
+        }
+
+        System.out.println(" ===== NUEVOS DATOS =====");
+
+        System.out.print("Nombre campaña: ");
+        String nombre = entrada.nextLine();
+
+        System.out.print("Ubicacion: ");
+        String ubicacion = entrada.nextLine();
+
+        System.out.println("¿Desea utilizar la fecha actual?");
+        System.out.println("""
+            1- Si
+            2- No
+            """);
+        
+        System.out.print("Opcion: ");
+        opcion = entrada.nextInt();
+        if(opcion == 1)
+            fecha = LocalDate.now();
+
+        else
+        {
+            System.out.println("Dia: ");
+            int dia = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.println("Mes: ");
+            int mes = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.println("Año: ");
+            int anio = entrada.nextInt();
+            entrada.nextLine();
+
+            fecha = LocalDate.of(anio, mes, dia);
+        }
+
+        campania.modificarCampania(nombre, fecha, ubicacion);
     }
 
     private void menuDonantes(GestorCampania gestor)
