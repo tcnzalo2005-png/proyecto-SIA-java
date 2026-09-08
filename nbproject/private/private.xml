@@ -4,10 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/tcnza/Documents/codigos/avanzada/GestorCampania/src/gestorcampania/GestorCampania.java</file>
-            <file>file:/C:/Users/tcnza/Documents/codigos/avanzada/GestorCampania/src/gestorcampania/Vent/MostrarCampanias.java</file>
-            <file>file:/C:/Users/tcnza/Documents/codigos/avanzada/GestorCampania/src/gestorcampania/ControladorDonantes.java</file>
-            <file>file:/C:/Users/tcnza/Documents/codigos/avanzada/GestorCampania/src/gestorcampania/Vent/MenuVentana.java</file>
-            <file>file:/C:/Users/tcnza/Documents/codigos/avanzada/GestorCampania/src/gestorcampania/Vent/MostrarDonant.java</file>
+            <file>file:/C:/Users/tcnza/Documents/codigos/avanzada/GestorCampania/src/gestorcampania/Campania.java</file>
+            <file>file:/C:/Users/tcnza/Documents/codigos/avanzada/GestorCampania/src/gestorcampania/ControladorCampania.java</file>
         </group>
     </open-files>
 </project-private>

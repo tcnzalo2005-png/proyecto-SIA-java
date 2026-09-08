@@ -37,7 +37,32 @@ public abstract class Campania {
         fecha = fechaAGuardar;
     }
     
-
+    public int totalSangre(){
+        int totalSangre = 0;
+        
+        for (Donante j : donantesPorRut.values()) {
+            
+            totalSangre = totalSangre + j.getDonacion();
+        }
+        return totalSangre;
+    }
+    public int totalSangre(Sangre tipoSangre){
+        int totalSangre = 0;
+        for(Donante i : donantesPorRut.values()){
+            if(i.getTipoSangre().equals(tipoSangre)){
+                totalSangre += i.getDonacion();
+            }
+        }
+        return totalSangre;
+    }
+    
+    public int totalDonadotres(){
+        int total = 0;
+        for(Donante i : donantesPorRut.values()){
+            total ++;
+        }
+        return total;
+    }
     public void crearDonante(String rut, String nombreDonante, Sangre tipoSangre, int donacion){
         Donante nuevo = new Donante(rut, nombreDonante, tipoSangre, donacion);
         donantesPorRut.put(rut , nuevo);

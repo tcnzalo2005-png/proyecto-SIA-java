@@ -4,6 +4,7 @@ package gestorcampania.Vent;
 import gestorcampania.ControladorCampania;
 import javax.swing.JOptionPane;
 import gestorcampania.GestorCampania;
+import gestorcampania.Sangre;
 
 public class MenuVentana extends javax.swing.JFrame {
     
@@ -41,6 +42,10 @@ public class MenuVentana extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btnTotalSangreDonada = new javax.swing.JButton();
+        btnTotalDonadores = new javax.swing.JButton();
+        btnTotalSangreDonadaDeUnTipo = new javax.swing.JButton();
+        cmbTipoSangre = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,6 +184,24 @@ public class MenuVentana extends javax.swing.JFrame {
             }
         });
 
+        btnTotalDonadores.setText("Total donadores");
+        btnTotalDonadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTotalDonadoresActionPerformed(evt);
+            }
+        });
+
+        btnTotalSangreDonadaDeUnTipo.setText("Total sangre donada de un tipo");
+        btnTotalSangreDonadaDeUnTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTotalSangreDonadaDeUnTipoActionPerformed(evt);
+            }
+        });
+
+        cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_POSITIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
+
+        jLabel4.setText("Tipo de sangre:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -186,14 +209,31 @@ public class MenuVentana extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(btnTotalSangreDonada)
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addGap(117, 117, 117)
+                .addComponent(btnTotalSangreDonadaDeUnTipo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addComponent(btnTotalDonadores)
+                .addGap(101, 101, 101))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(302, 302, 302)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(btnTotalSangreDonada, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                .addGap(21, 21, 21))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTotalSangreDonada, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                    .addComponent(btnTotalDonadores, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                    .addComponent(btnTotalSangreDonadaDeUnTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -217,7 +257,7 @@ public class MenuVentana extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(617, Short.MAX_VALUE)
@@ -237,7 +277,7 @@ public class MenuVentana extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(45, 45, 45)
@@ -315,8 +355,26 @@ public class MenuVentana extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarDonanteActionPerformed
 
     private void btnTotalSangreDonadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalSangreDonadaActionPerformed
-        JOptionPane.showMessageDialog(null,gestor.totalSangreDonada());
+        controlador = new ControladorCampania(gestor);
+        JOptionPane.showMessageDialog(null,controlador.totalSangreDonada());
     }//GEN-LAST:event_btnTotalSangreDonadaActionPerformed
+
+    private void btnTotalDonadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalDonadoresActionPerformed
+        controlador = new ControladorCampania(gestor);
+        JOptionPane.showMessageDialog(null,controlador.totalDonadores());
+    }//GEN-LAST:event_btnTotalDonadoresActionPerformed
+
+    private void btnTotalSangreDonadaDeUnTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalSangreDonadaDeUnTipoActionPerformed
+        String seleccion = (String)cmbTipoSangre.getSelectedItem();
+        if(seleccion.equals("-")){
+            JOptionPane.showMessageDialog(null,"Debe seleccionar algun tipo de sangre");
+            return;
+        }
+        Sangre tipoSangre = Sangre.valueOf(seleccion);
+        
+        JOptionPane.showMessageDialog(null,gestor.totalSangreDonadaPorTipo(tipoSangre));
+            
+    }//GEN-LAST:event_btnTotalSangreDonadaDeUnTipoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -329,10 +387,14 @@ public class MenuVentana extends javax.swing.JFrame {
     private javax.swing.JButton btnModificarDonante;
     private javax.swing.JButton btnMostrarCampania;
     private javax.swing.JButton btnMostrarDonante;
+    private javax.swing.JButton btnTotalDonadores;
     private javax.swing.JButton btnTotalSangreDonada;
+    private javax.swing.JButton btnTotalSangreDonadaDeUnTipo;
+    private javax.swing.JComboBox<String> cmbTipoSangre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

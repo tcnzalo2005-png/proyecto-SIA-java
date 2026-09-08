@@ -36,4 +36,13 @@ public class ControladorCampania {
         gestor.modificarCampanias(idCampania, nombreCampania, fecha, ubicacion);
     }
     
+    public int totalSangreDonada(){
+        return gestor.totalSangreDonada();
+    }
+    public int totalDonadores(){
+        return gestor.totalDonadores();
+    }
+    public int totalSangrePorTipo(Sangre tipoSangre){
+        return gestor.totalSangreDonadaPorTipo(tipoSangre);
+    }
 }
