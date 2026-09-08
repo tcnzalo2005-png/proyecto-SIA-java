@@ -1,0 +1,192 @@
+package gestorcampania;
+
+import java.util.Scanner;
+
+public class Consola
+{
+    private Scanner entrada = new Scanner(System.in);
+
+    public void menu(GestorCampania gestor)
+    {
+        int opcion = 0;
+
+        do
+        {
+            System.out.println(" ===== GESTOR CAMPAÑAS =====");
+            System.out.println("""
+                1- Gestionar campañas
+                2- Gestionar donantes
+                3- Consultar
+                0- Salir
+                """);
+
+            System.out.print("Opcion: ");
+            opcion = entrada.nextInt();
+
+            switch(opcion)
+            {
+                case 0:
+                    System.out.println("Saliendo...\n");
+                    break;
+
+                case 1:
+                    menuCampanias(gestor);
+                    break;
+
+                case 2:
+                    menuDonantes(gestor);
+                    break;
+
+                case 3:
+                    menuConsultas(gestor);
+                    break;
+
+                default:
+                    System.out.println("Entrada invalida\n");
+            }
+        }
+        while(opcion != 0);
+
+        entrada.close();
+    }
+
+    private void menuCampanias(GestorCampania gestor)
+    {
+        Campania campania = null;
+        int id = 0;
+        int opcion = 0;
+
+        do
+        {
+            System.out.println(" ===== MENU CAMPAÑAS =====");
+            System.out.println("""
+                1- Crear campaña
+                2- Listar campañas
+                3- Buscar campaña
+                4- Modificar campaña
+                5- Eliminar campaña
+                0- Volver
+                """);
+
+            System.out.print("Opcion: ");
+            opcion = entrada.nextInt();
+
+            switch(opcion)
+            {
+                case 0:
+                    System.out.println("Volviendo...\n");
+                    break;
+
+                case 1:
+                    int tipo;
+
+                    do
+                    {
+                        System.out.println(" ===== TIPO CAMPAÑA =====");
+                        System.out.println("""
+                            1- Campaña fija
+                            2- Campaña movil
+                            0- Volver
+                            """);
+
+                        System.out.print("Opcion: ");
+                        tipo = entrada.nextInt();
+
+                        switch(tipo)
+                        {
+                            case 0:
+                                System.out.println("Volviendo...\n");
+                                break;
+
+                            case 1:
+                                crearCampaniaFija(gestor);
+                                break;
+
+                            case 2:
+                                crearCampaniaMovil(gestor);
+                                break;
+
+                            default:
+                                System.out.println("Entrada invalida\n");
+                        }
+                    }
+                    while(tipo < 0 || tipo > 2);
+
+                    break;
+                
+                case 2:
+                    System.out.println(" ===== LISTA CAMPAÑAS =====");
+                    System.out.println(gestor.mostrarCampania());
+                    break;
+
+                case 3:
+                    System.out.println(" ===== BUSCAR CAMPAÑA =====");
+                    System.out.print("ID campaña: ");
+                    id = entrada.nextInt();
+
+                    campania = gestor.buscarCampania(id);
+                    if(campania == null)
+                        System.out.println("No se encontro la campaña deseada\n");
+                    
+                    else
+                        System.out.println(campania.mostrarCampania());
+
+                    break;
+
+                case 4:
+                    modificarCampania(gestor);
+                    break;
+
+                case 5:
+                    System.out.println(" ===== ELIMINAR CAMPAÑA =====");
+                    System.out.println("Seleccione '-1' para cancelar");
+                    System.out.print("ID campaña: ");
+                    id = entrada.nextInt();
+
+                    if(id == -1)
+                    {
+                        System.out.println("Volviendo...\n");
+                        break;
+                    }
+
+                    campania = gestor.buscarCampania(id);
+                    if(campania == null)
+                        System.out.println("No se encontro la campaña deseada\n");
+
+                    else
+                        gestor.eliminarCampania(id);
+
+                    break;
+
+                default:
+                    System.out.println("Entrada invalida");
+            }
+        }
+        while(opcion != 0);
+    }
+
+    private void crearCampaniaFija(GestorCampania gestor)
+    {
+        
+    }
+
+    private void crearCampaniaMovil(GestorCampania gestor)
+    {
+
+    }
+
+    private void modificarCampania(GestorCampania gestor)
+    {
+
+    }
+
+    private void menuDonantes(GestorCampania gestor)
+    {
+
+    }
+
+    private void menuConsultas(GestorCampania gestor)
+    {
+
+    }
+}

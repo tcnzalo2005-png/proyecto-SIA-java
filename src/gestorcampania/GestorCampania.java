@@ -106,6 +106,8 @@ public class GestorCampania {
         
         if(opcion == 1){
             System.out.println("ingreso a consola...");
+            Consola consola = new Consola();
+            consola.menu(gestor);
         }else if(opcion == 2){
             MenuVentana vent = new MenuVentana(gestor);
             vent.setVisible(true);
