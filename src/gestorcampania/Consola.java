@@ -392,7 +392,7 @@ public class Consola
 
                 case 3:
                     if(campania == null)
-                        listarTodosDonantes(gestor);
+                        gestor.listarTodosDonantes();
 
                     else
                         campania.mostrarDonante();
@@ -420,7 +420,18 @@ public class Consola
                     break;
 
                 case 5:
-                    
+                    if(campania == null)
+                        System.out.println("Seleccione una campaña\n");
+                    else
+                        modificarDonante(campania);
+                    break;
+
+                case 6:
+                    if(campania == null)
+                        System.out.println("Seleccione una campaña\n");
+                    else
+                        eliminarDonante(campania);
+                    break;
 
                 default:
                     System.out.println("Entrada invalida\n");
@@ -431,16 +442,141 @@ public class Consola
 
     private void crearDonante(Campania campania)
     {
+        String rut;
+        String nombre;
+        Sangre tipoSangre;
+        int donacion;
 
+        System.out.println(" ===== CREAR DONANTE =====");
+
+        System.out.print("Rut: ");
+        rut = entrada.nextLine();
+
+        System.out.print("Nombre: ");
+        nombre = entrada.nextLine();
+
+        System.out.print("Tipo de sangre: ");
+        tipoSangre = Sangre.valueOf(entrada.nextLine().toUpperCase());
+
+        System.out.print("Cantidad de sangre donada: ");
+        donacion = entrada.nextInt();
+        entrada.nextLine();
+
+        campania.crearDonante(rut, nombre, tipoSangre, donacion);
     }
 
-    private void listarTodosDonantes(GestorCampania gestor)
+    private void modificarDonante(Campania campania)
     {
+        String rut;
+        String nombre;
+        Sangre tipoSangre;
+        int donacion;
 
+        System.out.println(" ===== MODIFICAR DONANTE =====");
+
+        System.out.print("Rut del donante: ");
+        rut = entrada.nextLine();
+
+        if(campania.buscarDonante(rut) == null)
+        {
+            System.out.println("No se encontro el donante\n");
+            return;
+        }
+
+        System.out.print("Nuevo nombre: ");
+        nombre = entrada.nextLine();
+
+        System.out.print("Nuevo tipo de sangre: ");
+        tipoSangre = Sangre.valueOf(entrada.nextLine().toUpperCase());
+
+        System.out.print("Nueva cantidad de sangre donada: ");
+        donacion = entrada.nextInt();
+        entrada.nextLine();
+
+        campania.modificarDonante(rut, nombre, tipoSangre, donacion);
+
+        System.out.println("Donante modificado correctamente\n");
+    }
+
+    private void eliminarDonante(Campania campania)
+    {
+        String rut;
+
+        System.out.println(" ===== ELIMINAR DONANTE =====");
+
+        System.out.print("Rut del donante: ");
+        rut = entrada.nextLine();
+
+        if(campania.buscarDonante(rut) == null)
+        {
+            System.out.println("No se encontro el donante\n");
+            return;
+        }
+
+        campania.eliminarDonante(rut);
+
+        System.out.println("Donante eliminado correctamente\n");
     }
 
     private void menuConsultas(GestorCampania gestor)
     {
+        int opcion;
+        Sangre tipoSangre;
 
+        do
+        {
+            System.out.println(" ===== CONSULTAS =====");
+
+            System.out.println
+            (
+                "1- Total de sangre donada\n" +
+                "2- Total de donadores\n" +
+                "3- Total de sangre donada por tipo\n" +
+                "0- Volver"
+            );
+
+            System.out.print("Opcion: ");
+            opcion = entrada.nextInt();
+            entrada.nextLine();
+
+            switch(opcion)
+            {
+                case 1:
+                    System.out.println(
+                        "Total de sangre donada: "
+                        + gestor.totalSangreDonada()
+                    );
+                    break;
+
+                case 2:
+                    System.out.println(
+                        "Total de donadores: "
+                        + gestor.totalDonadores()
+                    );
+                    break;
+
+                case 3:
+                    System.out.println(" ===== SANGRE POR TIPO =====");
+
+                    System.out.print("Tipo de sangre: ");
+                    tipoSangre = Sangre.valueOf(
+                        entrada.nextLine().toUpperCase()
+                    );
+
+                    System.out.println(
+                        "Total donado: "
+                        + gestor.totalSangreDonadaPorTipo(tipoSangre)
+                    );
+                    break;
+
+                case 0:
+                    System.out.println("Volviendo...\n");
+                    break;
+
+                default:
+                    System.out.println("Entrada invalida\n");
+            }
+        }
+        while(opcion != 0);
     }
 }
