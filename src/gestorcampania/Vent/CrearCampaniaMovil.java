@@ -2,20 +2,25 @@
 package gestorcampania.Vent;
 import gestorcampania.GestorCampania;
 import gestorcampania.ControladorCampania;
+import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 public class CrearCampaniaMovil extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorCampania controlador;
+    private ValidadorCamposDeVentana validadorCampos;
    
     public CrearCampaniaMovil(GestorCampania gestor){
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.gestor = gestor;
+        validadorCampos = new ValidadorCamposDeVentana();
     }
     public CrearCampaniaMovil() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        validadorCampos = new ValidadorCamposDeVentana();
     }
 
     
@@ -44,7 +49,7 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
 
         jLabel3.setText("Nombre:");
 
-        jLabel4.setText("Fecha:");
+        jLabel4.setText("Fecha (AÑO-MES-DIA):");
 
         jLabel5.setText("Ubicacion:");
 
@@ -69,18 +74,18 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(8, 8, 8)
-                        .addComponent(txtFecha))
+                        .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombre))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(8, 8, 8)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCrear)
                             .addComponent(txtUbicacion))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,12 +138,47 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        int idCampania = Integer.parseInt(txtIdCampania.getText());
-        String nombre = txtNombre.getText();
-        LocalDate fecha = LocalDate.parse(txtFecha.getText());
-        String ubicacion = txtUbicacion.getText();
+        String texto = txtIdCampania.getText();
+        int idCampania = 0;
+        if(validadorCampos.esNumInt(texto) == true){
+             idCampania = Integer.parseInt(texto);
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
+            return;
+        }
+        
+        texto = txtNombre.getText();
+        String nombre;
+        if(validadorCampos.esTexto(texto) == true){
+            nombre = texto;
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacion ni con numeros)");
+            return;
+        }
+        
+        texto = txtUbicacion.getText();
+        String ubicacion;
+        if(validadorCampos.esTexto(texto) == true){
+            ubicacion = texto;
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacion ni con numeros)");
+            return;
+        }
+        
+        texto = txtFecha.getText();
+        LocalDate fecha;
         controlador = new ControladorCampania(this.gestor);
-        controlador.crearCampaniaMovil(idCampania,nombre, fecha, ubicacion);
+        if(texto.equals("")){
+            controlador.crearCampaniaFija(idCampania, nombre, ubicacion);
+        }else{
+            if(validadorCampos.esFecha(texto) == true){
+                fecha = LocalDate.parse(texto);
+            }else{
+                JOptionPane.showMessageDialog(this, "Debe ingresar una fecha correcta (AÑO-MES-DIA)");
+                return;
+            }
+            controlador.crearCampaniaMovil(idCampania,nombre, fecha, ubicacion);
+        }
     }//GEN-LAST:event_btnCrearActionPerformed
 
 

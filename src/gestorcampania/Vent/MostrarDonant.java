@@ -2,20 +2,24 @@
 package gestorcampania.Vent;
 import gestorcampania.GestorCampania;
 import gestorcampania.ControladorDonantes;
+import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import javax.swing.JOptionPane;
 
 public class MostrarDonant extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorDonantes controlador;
+    private ValidadorCamposDeVentana validadorCampos;
     
     public MostrarDonant(GestorCampania gestor){
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.gestor = gestor;
+        validadorCampos = new ValidadorCamposDeVentana();
     }
     public MostrarDonant() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        validadorCampos = new ValidadorCamposDeVentana();
     }
 
     
@@ -101,7 +105,14 @@ public class MostrarDonant extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdCampaniaActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        int idCampania = Integer.parseInt(txtIdCampania.getText());
+        String texto = txtIdCampania.getText();
+        int idCampania;
+        if(validadorCampos.esNumInt(texto) == true){
+            idCampania = Integer.parseInt(texto);
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
+            return;
+        }
         controlador = new ControladorDonantes(gestor);
         txtAreaDonante.setText(controlador.mostrarDonantes(idCampania));
         

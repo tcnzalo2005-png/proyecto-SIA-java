@@ -102,6 +102,13 @@ public class GestorCampania {
             aModificar.modificarCampania(nombreCampania, fecha, ubicacion);
         }
     }
+    public void modificarCampanias(int idCampania, String nombreCampania, String ubicacion){
+        Campania aModificar = buscarCampania(idCampania);
+
+        if(aModificar != null){
+            aModificar.modificarCampania(nombreCampania, LocalDate.now(), ubicacion);
+        }
+    }
     
     public static void main(String[] args){
         GestorCampania gestor = new GestorCampania();

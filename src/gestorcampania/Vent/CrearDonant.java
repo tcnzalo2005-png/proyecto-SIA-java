@@ -4,20 +4,24 @@ package gestorcampania.Vent;
 import gestorcampania.GestorCampania;
 import gestorcampania.Sangre;
 import gestorcampania.ControladorDonantes;
+import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import javax.swing.JOptionPane;
 public class CrearDonant extends javax.swing.JFrame {
     
     private GestorCampania gestor;
     private ControladorDonantes controlador;
+    private ValidadorCamposDeVentana validadorCampos;
     
     public CrearDonant(GestorCampania gestor){
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.gestor = gestor;
+        validadorCampos = new ValidadorCamposDeVentana();
     }
     public CrearDonant() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        validadorCampos = new ValidadorCamposDeVentana();
     }
 
   
@@ -152,16 +156,41 @@ public class CrearDonant extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         String rut = txtRut.getText();
-        int idCampania = Integer.parseInt(txtIdCampania.getText());
-        String nombre = txtNombre.getText();
+        
+        String texto = txtIdCampania.getText();
+        int idCampania;
+        if(validadorCampos.esNumInt(texto) == true){
+            idCampania = Integer.parseInt(texto);
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
+            return;
+        }
+        
+        texto = txtNombre.getText();
+        String nombre;
+        if(validadorCampos.esTexto(texto) == true){
+            nombre = texto;
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
+            return;
+        }
+        
+        
         String seleccion = (String) cmbTipoSangre.getSelectedItem();
         if(seleccion.equals("-")){
             JOptionPane.showMessageDialog(null,"Debe seleccionar algun tipo de sangre");
             return;
         }
         Sangre tipoSangre = Sangre.valueOf(seleccion);
-                
-        int donacion = Integer.parseInt(txtDonacion.getText());
+        
+        texto = txtDonacion.getText();
+        int donacion;
+        if(validadorCampos.esNumInt(texto) == true){
+            donacion = Integer.parseInt(texto);
+        }else{
+            JOptionPane.showMessageDialog(null,"Debe ingresar un numero entero valido");
+            return;
+        }
         
         controlador = new ControladorDonantes(this.gestor);
         controlador.crearDonante(idCampania, rut, nombre, tipoSangre, donacion);

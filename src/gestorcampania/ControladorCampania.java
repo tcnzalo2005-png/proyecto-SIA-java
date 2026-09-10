@@ -35,6 +35,9 @@ public class ControladorCampania {
     public void modificarCampania(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         gestor.modificarCampanias(idCampania, nombreCampania, fecha, ubicacion);
     }
+    public void modificarCampania(int idCampania, String nombreCampania, String ubicacion){
+        gestor.modificarCampanias(idCampania, nombreCampania, ubicacion);
+    }
     
     public int totalSangreDonada(){
         return gestor.totalSangreDonada();

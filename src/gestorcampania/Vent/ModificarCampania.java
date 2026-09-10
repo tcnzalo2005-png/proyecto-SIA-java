@@ -2,20 +2,25 @@
 package gestorcampania.Vent;
 import gestorcampania.GestorCampania;
 import gestorcampania.ControladorCampania;
+import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 public class ModificarCampania extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorCampania controlador;
+    private ValidadorCamposDeVentana validadorCampos;
     
     public ModificarCampania(GestorCampania gestor){
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.gestor = gestor;
+        validadorCampos = new ValidadorCamposDeVentana();
     }
     public ModificarCampania() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        validadorCampos = new ValidadorCamposDeVentana();
     }
 
     
@@ -53,7 +58,7 @@ public class ModificarCampania extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Fecha");
+        jLabel4.setText("Fecha (AÑO-MES-DIA): ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,7 +87,7 @@ public class ModificarCampania extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(btnModificar)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,13 +125,47 @@ public class ModificarCampania extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        int idCampania = Integer.parseInt(txtIdCampania.getText());
-        String nombre = txtNombre.getText();
-        String ubicacion = txtUbicacion.getText();
-        LocalDate fecha = LocalDate.parse(txtFecha.getText());
-        controlador = new ControladorCampania(this.gestor);
+        String texto = txtIdCampania.getText();
+        int idCampania;
+        if(validadorCampos.esNumInt(texto) == true){
+            idCampania = Integer.parseInt(texto);
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
+            return;
+        }
         
-        controlador.modificarCampania(idCampania, nombre, fecha, ubicacion);
+        texto = txtNombre.getText();
+        String nombre;
+        if(validadorCampos.esTexto(texto) == true){
+            nombre = texto;
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
+            return;
+        }
+        
+        texto = txtUbicacion.getText();
+        String ubicacion;
+        if(validadorCampos.esTexto(texto) == true){
+            ubicacion = texto;
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
+            return;
+        }
+        
+        texto = txtFecha.getText();
+        LocalDate fecha;
+        controlador = new ControladorCampania(this.gestor);
+        if(texto.equals("")){
+            controlador.modificarCampania(idCampania, nombre, ubicacion);
+        }else{
+            if(validadorCampos.esFecha(texto) == true){
+                fecha = LocalDate.parse(texto);
+            }else{
+                JOptionPane.showMessageDialog(this, "Debe ingresar una fecha correcta (AÑO-MES-DIA)");
+                return;
+            }
+            controlador.modificarCampania(idCampania,nombre, fecha, ubicacion);
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
 

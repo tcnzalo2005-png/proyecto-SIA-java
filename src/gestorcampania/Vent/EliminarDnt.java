@@ -2,19 +2,24 @@
 package gestorcampania.Vent;
 import gestorcampania.GestorCampania;
 import gestorcampania.ControladorDonantes;
+import gestorcampania.herramientas.ValidadorCamposDeVentana;
+import javax.swing.JOptionPane;
 
 public class EliminarDnt extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorDonantes controlador;
+    private ValidadorCamposDeVentana validadorCampos;
     
     public EliminarDnt(GestorCampania gestor){
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.gestor = gestor;
+        validadorCampos = new ValidadorCamposDeVentana();
     }
     public EliminarDnt() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        validadorCampos = new ValidadorCamposDeVentana();
     }
 
     
@@ -91,7 +96,14 @@ public class EliminarDnt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int idCampania = Integer.parseInt(txtIdCampania.getText());
+        String texto = txtIdCampania.getText();
+        int idCampania;
+        if(validadorCampos.esNumInt(texto) == true){
+            idCampania = Integer.parseInt(texto);
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
+            return;
+        }
         String rut = txtRut.getText();
         controlador = new ControladorDonantes(gestor);
         controlador.eliminarDonante(idCampania, rut);
