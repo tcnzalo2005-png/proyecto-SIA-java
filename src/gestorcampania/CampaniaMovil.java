@@ -16,6 +16,10 @@ public class CampaniaMovil extends Campania {
         this.ubicaciones.add(ubicacion);
     }
 
+    public ArrayList<String> getUbicaciones(){
+        return ubicaciones;
+    }
+
     @Override
     public void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion){
         setNombreCampania(nombreCampania);
