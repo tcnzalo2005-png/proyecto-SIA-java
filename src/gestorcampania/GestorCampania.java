@@ -2,6 +2,7 @@ package gestorcampania;
 import gestorcampania.Vent.MenuVentana;
 import java.util.*;
 import java.time.LocalDate;
+import gestorcampania.consola.MenuConsola;
 
 public class GestorCampania {
     private ArrayList<Campania> listaCampanias;
@@ -136,7 +137,7 @@ public class GestorCampania {
         
         if(opcion == 1){
             System.out.println("ingreso a consola...");
-            Consola consola = new Consola();
+            MenuConsola consola = new MenuConsola();
             consola.menu(gestor);
         }else if(opcion == 2){
             MenuVentana vent = new MenuVentana(gestor);
