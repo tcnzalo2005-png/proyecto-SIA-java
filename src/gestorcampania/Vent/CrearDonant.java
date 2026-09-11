@@ -48,7 +48,7 @@ public class CrearDonant extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Creacion de donante");
 
-        jLabel2.setText("Rut:");
+        jLabel2.setText("Rut (con punto y guion)");
 
         jLabel3.setText("Nombre: ");
 
@@ -97,7 +97,7 @@ public class CrearDonant extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIdCampania)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

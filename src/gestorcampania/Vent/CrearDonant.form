@@ -98,7 +98,7 @@
                           <Component id="txtIdCampania" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="102" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -140,7 +140,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Rut:"/>
+            <Property name="text" type="java.lang.String" value="Rut (con punto y guion)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
