@@ -16,6 +16,9 @@ public abstract class Campania {
         this.donantesPorRut = new HashMap<>();
     }
     
+    public HashMap<String, Donante> getDonantes(){
+    return donantesPorRut;
+    }
     public int getIdCampania(){
         return idCampania;
     }
