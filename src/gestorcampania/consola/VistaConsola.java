@@ -38,6 +38,8 @@ public class VistaConsola
 
         if(campania != null)
             System.out.println("Campaña: " + campania.getNombreCampania());
+        else
+            System.out.println("NO SE HA SELECCIONADO UNA CAMPAÑA");
 
         System.out.println
         (
