@@ -42,8 +42,7 @@ public class MenuCampanias
                     break;
 
                 case 2:
-                    vista.vistaListarCampania();
-                    gestor.mostrarCampania();
+                    ges.listarCampanias(gestor);
                     break;
 
                 case 3:

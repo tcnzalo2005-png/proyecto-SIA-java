@@ -277,4 +277,11 @@ public class GestionCampanias
         else
             gestor.eliminarCampania(id);
     }
+
+    public void listarCampanias(GestorCampania gestor)
+    {
+        vista.vistaListarCampania();
+
+        vista.listarCampania(gestor);
+    }
 }

@@ -1,6 +1,7 @@
 package gestorcampania.consola;
 
 import gestorcampania.Campania;
+import gestorcampania.GestorCampania;
 import gestorcampania.Sangre;
 
 public class VistaConsola
@@ -212,5 +213,15 @@ public class VistaConsola
     public void vistaBuscarDonante()
     {
         System.out.println(" ===== BUSCAR DONANTE =====");
+    }
+
+    public void listarCampania(GestorCampania gestor)
+    {
+        System.out.println(gestor.mostrarCampania());
+    }
+
+    public void listarDonante(String donantes)
+    {
+        System.out.println(donantes);
     }
 }

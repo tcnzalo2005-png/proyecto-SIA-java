@@ -51,7 +51,7 @@ public class MenuDonantes
 
                 case 3:
                     if(campania == null)
-                        gestor.listarTodosDonantes();
+                        vista.noCampaniaEncontrada(opcion);
 
                     else
                         campania.mostrarDonante();

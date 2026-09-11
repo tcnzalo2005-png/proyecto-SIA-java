@@ -11,16 +11,6 @@ public class GestorCampania {
         listaCampanias = new ArrayList<>();
     }
 
-    public void listarTodosDonantes()
-    {
-        for(Campania campania : listaCampanias)
-        {
-            System.out.println("===== " + campania.getNombreCampania() + " =====");
-            campania.mostrarDonante();
-            System.out.println();
-        }
-    }
-
     public int totalSangreDonada() {
         int totalSangre = 0;
         for(int i = 0 ; i < listaCampanias.size(); i++) {
