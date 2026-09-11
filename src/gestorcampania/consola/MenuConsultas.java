@@ -34,15 +34,15 @@ public class MenuConsultas
                     break;
 
                 case 1:
-                    ges.totalSangreDonada();
+                    ges.totalSangreDonada(gestor);
                     break;
 
                 case 2:
-                    ges.totalDonadores();
+                    ges.totalDonadores(gestor);
                     break;
 
                 case 3:
-                    ges.sangrePorTipo();
+                    ges.sangrePorTipo(gestor);
                     break;
                 
                 default:

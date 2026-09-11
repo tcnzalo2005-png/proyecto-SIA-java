@@ -4,7 +4,6 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 
 import gestorcampania.Campania;
-import gestorcampania.CampaniaFija;
 import gestorcampania.GestorCampania;
 import gestorcampania.herramientas.Scan;
 import gestorcampania.herramientas.excepciones.ScanException;
@@ -54,11 +53,20 @@ public class GestionCampanias
 
     private void crearCampaniaFija(GestorCampania gestor)
     {
+        int id = 0;
         int opcion = 0;
 
         vista.vistaCrearCampania();
 
-        int id = getIdCampania;
+        try
+        {
+            id = scan.Int();
+        }
+        catch(ScanException e)
+        {
+            vista.entradaInvalida();
+        }
+
         String nombre = scan.Str("Nombre campaña: ");
         String ubicacion = scan.Str("Ubicacion: ");
 
@@ -95,11 +103,20 @@ public class GestionCampanias
 
     private void crearCampaniaMovil(GestorCampania gestor)
     {
+        int id = 0;
         int opcion = 0;
 
         vista.vistaCrearCampania();
 
-        int id = getIdCampania;
+        try
+        {
+            id = scan.Int();
+        }
+        catch(ScanException e)
+        {
+            vista.entradaInvalida();
+        }
+
         String nombre = scan.Str("Nombre campaña: ");
         String ubicacion = scan.Str("Ubicacion: ");
 

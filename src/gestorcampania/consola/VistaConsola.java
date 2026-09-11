@@ -122,6 +122,34 @@ public class VistaConsola
         System.out.println(" ===== ELIMINAR DONANTE =====");
     }
 
+    public void vistaTotalSangreDonada()
+    {
+        System.out.print
+        (
+            " = TOTAL SANGRE DONADA =\n" +
+            "Total sangre: "
+        );
+    }
+
+    public void vistaTotalDonadores()
+    {
+        System.out.print
+        (
+            " = TOTAL DONADORES =\n " +
+            "Total donadores: "
+        );
+    }
+
+    public void vistaSangrePorTipo()
+    {
+        System.out.println(" ===== SANGRE POR TIPO =====");
+    }
+
+    public void msjTotalDonado()
+    {
+        System.out.println("Total donado: ");
+    }
+
     public void msjSalir()
     {
         System.out.println("Saliendo...");
