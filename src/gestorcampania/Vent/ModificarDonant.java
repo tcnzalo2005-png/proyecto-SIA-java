@@ -48,7 +48,7 @@ public class ModificarDonant extends javax.swing.JFrame {
 
         jLabel2.setText("ID campaña:");
 
-        jLabel3.setText("Rut donante:");
+        jLabel3.setText("Rut (con punto y guion):");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class ModificarDonant extends javax.swing.JFrame {
                     .addComponent(txtRut)
                     .addComponent(txtNombre)
                     .addComponent(txtDonacion, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -53,22 +53,34 @@ public class GestorCampania {
     }
     
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
+        if(buscarCampania(idCampania) != null){
+            return;
+        }
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, fecha, ubicacion);
         if(nuevo != null){
             listaCampanias.add(nuevo);
         }
     }
     public void crearCampaniaFija(int idCampania, String nombreCampania, String ubicacion){
+        if(buscarCampania(idCampania) != null){
+            return;
+        }
         CampaniaFija nuevo = new CampaniaFija(idCampania, nombreCampania, LocalDate.now(), ubicacion);
         listaCampanias.add(nuevo);
     }
     public void crearCampaniaMovil(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
+        if(buscarCampania(idCampania) != null){
+            return;
+        }
         CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, fecha, ubicacion);
         if(nuevo != null){
             listaCampanias.add(nuevo);
         }
     }
     public void crearCampaniaMovil(int idCampania, String nombreCampania, String ubicacion){
+        if(buscarCampania(idCampania) != null){
+            return;
+        }
         CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, LocalDate.now(), ubicacion);
         listaCampanias.add(nuevo);
     }

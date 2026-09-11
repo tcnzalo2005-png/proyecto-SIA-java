@@ -1,4 +1,4 @@
-package gestorcampania;
+    package gestorcampania;
 
 import java.util.*;
 import java.time.LocalDate;
@@ -24,9 +24,6 @@ public abstract class Campania {
     }
     public LocalDate getFecha(){
         return fecha;
-    }
-    public HashMap<String, Donante> getDonantesPorRut(){
-        return donantesPorRut;
     }
    
 
@@ -64,10 +61,16 @@ public abstract class Campania {
         return total;
     }
     public void crearDonante(String rut, String nombreDonante, Sangre tipoSangre, int donacion){
+        if(donantesPorRut.get(rut) != null){
+            return;
+        }
         Donante nuevo = new Donante(rut, nombreDonante, tipoSangre, donacion);
         donantesPorRut.put(rut , nuevo);
     }
     public void crearDonante(String rut, String nombreDonante, Sangre tipoSangre){
+        if(donantesPorRut.get(rut) != null){
+            return;
+        }
         Donante nuevo = new Donante(rut, nombreDonante, tipoSangre, 0);
         donantesPorRut.put(rut, nuevo);
     }
@@ -96,5 +99,5 @@ public abstract class Campania {
     
 
     public abstract String mostrarCampania();
-    public abstract  void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion);
+    public abstract void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion);
 }

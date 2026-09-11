@@ -15,6 +15,7 @@ public class CampaniaFija extends Campania {
     public String getUbicacion(){
         return ubicacion;
     }
+    
 
     @Override
     public String mostrarCampania(){
