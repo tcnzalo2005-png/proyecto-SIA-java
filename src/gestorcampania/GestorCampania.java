@@ -4,23 +4,26 @@ import java.util.*;
 import java.time.LocalDate;
 import gestorcampania.consola.MenuConsola;
 
-public class GestorCampania {
-    private ArrayList<Campania> listaCampanias;
-    
-    public GestorCampania(){
-        listaCampanias = new ArrayList<>();
-    }
+public class GestorCampania { 
+    private ArrayList<Campania> listaCampanias; 
+     
+    public GestorCampania(){ 
+        listaCampanias = new ArrayList<>(); 
+    } 
 
-    public int totalSangreDonada() {
-        int totalSangre = 0;
-        for(int i = 0 ; i < listaCampanias.size(); i++) {
-           Campania campania = listaCampanias.get(i);
-           totalSangre += campania.totalSangre();
-
-        }
-        return totalSangre;
+    public ArrayList<Campania> getListaCampanias(){
+        return listaCampanias;
     }
-    
+ 
+    public int totalSangreDonada() { 
+        int totalSangre = 0; 
+        for(int i = 0 ; i < listaCampanias.size(); i++) { 
+           Campania campania = listaCampanias.get(i); 
+           totalSangre += campania.totalSangre(); 
+        } 
+        return totalSangre; 
+    }
+}
     public int totalDonadores(){
         int totalPersonas = 0;
 
