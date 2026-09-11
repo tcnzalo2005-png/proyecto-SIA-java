@@ -23,7 +23,7 @@ public class GestorCampania {
         } 
         return totalSangre; 
     }
-}
+
     public int totalDonadores(){
         int totalPersonas = 0;
 
@@ -116,29 +116,45 @@ public class GestorCampania {
         }
     }
     
-    public static void main(String[] args){
-        GestorCampania gestor = new GestorCampania();
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
-        /* Crear datos de ejemplo */
-        gestor.listaCampanias.add(DatosEjemplo.poblar());
-        
-        System.out.println("Ventana o consola");
-        System.out.println("1.-Consola");
-        System.out.println("2.-Ventana");
-        opcion = scanner.nextInt();
-        
-        if(opcion == 1){
-            System.out.println("ingreso a consola...");
-            MenuConsola consola = new MenuConsola();
-            consola.menu(gestor);
-        }else if(opcion == 2){
-            MenuVentana vent = new MenuVentana(gestor);
-            vent.setVisible(true);
-            vent.setLocationRelativeTo(null);
-        }
-        
-        
-        scanner.close();
+public static void main(String[] args){
+
+    GestorCampania gestor = new GestorCampania();
+    Scanner scanner = new Scanner(System.in);
+
+    CSV csv = new CSV("campanias.csv");
+
+    csv.cargarCSV(gestor);
+
+    System.out.println("Ventana o consola");
+    System.out.println("1.-Consola");
+    System.out.println("2.-Ventana");
+
+    int opcion = scanner.nextInt();
+
+    if(opcion == 1){
+
+        System.out.println("ingreso a consola...");
+
+        MenuConsola consola = new MenuConsola();
+        consola.menu(gestor);
+
+        csv.guardarCSV(gestor);
+
+    }else if(opcion == 2){
+
+        MenuVentana vent = new MenuVentana(gestor);
+        vent.setVisible(true);
+        vent.setLocationRelativeTo(null);
+
+        vent.addWindowListener(new java.awt.event.WindowAdapter(){
+
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e){
+                csv.guardarCSV(gestor);
+            }
+        });
     }
+
+    scanner.close();
+}
 }
