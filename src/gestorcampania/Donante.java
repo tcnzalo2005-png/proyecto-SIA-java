@@ -56,9 +56,9 @@ public class Donante {
                 "\nDonacion: " + getDonacion();
     }
 
-    public void modificarDonante(String nombreDonante, Sangre tipoSangre, int donacion){
+    public void modificarDonante(String nombreDonante, Sangre tipoSangre){
         setNombreDonante(nombreDonante);
         setTipoSangre(tipoSangre);
-        setDonacion(donacion);
+        
     }
 }

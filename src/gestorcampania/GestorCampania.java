@@ -76,7 +76,9 @@ public class GestorCampania {
             return;
         }
         CampaniaMovil nuevo = new CampaniaMovil(idCampania, nombreCampania, LocalDate.now(), ubicacion);
-        listaCampanias.add(nuevo);
+        if(nuevo != null){
+            listaCampanias.add(nuevo);
+        }
     }
 
     public Campania buscarCampania(int idBuscar){

@@ -29,16 +29,14 @@
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="cmbTipoSangre" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtIdCampania" max="32767" attributes="0"/>
+                  <Component id="txtIdCampania" pref="190" max="32767" attributes="0"/>
                   <Component id="txtRut" max="32767" attributes="0"/>
                   <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtDonacion" alignment="0" pref="190" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="222" max="32767" attributes="0"/>
           </Group>
@@ -51,7 +49,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -77,19 +75,14 @@
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtDonacion" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbTipoSangre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace pref="104" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,19 +123,12 @@
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Donacion:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tipo de sangre"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombre">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtDonacion">
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbTipoSangre">
       <Properties>

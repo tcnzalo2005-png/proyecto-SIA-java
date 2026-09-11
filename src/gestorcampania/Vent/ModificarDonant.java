@@ -35,10 +35,8 @@ public class ModificarDonant extends javax.swing.JFrame {
         txtRut = new javax.swing.JTextField();
         btnModificar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtDonacion = new javax.swing.JTextField();
         cmbTipoSangre = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,8 +57,6 @@ public class ModificarDonant extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre:");
 
-        jLabel5.setText("Donacion:");
-
         jLabel6.setText("Tipo de sangre");
 
         cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_POSITIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
@@ -75,15 +71,13 @@ public class ModificarDonant extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdCampania)
+                    .addComponent(txtIdCampania, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(txtRut)
-                    .addComponent(txtNombre)
-                    .addComponent(txtDonacion, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                    .addComponent(txtNombre))
                 .addContainerGap(222, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -93,7 +87,7 @@ public class ModificarDonant extends javax.swing.JFrame {
                         .addGap(357, 357, 357))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnModificar)
-                        .addGap(364, 364, 364))))
+                        .addGap(362, 362, 362))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,17 +106,13 @@ public class ModificarDonant extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(txtDonacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(34, 34, 34)
                 .addComponent(btnModificar)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,15 +139,6 @@ public class ModificarDonant extends javax.swing.JFrame {
         
         String rut = txtRut.getText();
         
-        texto = txtDonacion.getText();
-        int donacion;
-        if(validadorCampos.esNumInt(texto) == true){
-            donacion = Integer.parseInt(texto);
-        }else{
-            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
-            return;
-        }
-        
         String seleccion = (String) cmbTipoSangre.getSelectedItem();
         
         if(seleccion.equals("-")){
@@ -168,7 +149,7 @@ public class ModificarDonant extends javax.swing.JFrame {
         Sangre tipoSangre = Sangre.valueOf(seleccion);
         controlador = new ControladorDonantes(gestor);
         
-        controlador.modificarDonante(idCampania, rut, nombre, tipoSangre, donacion);
+        controlador.modificarDonante(idCampania, rut, nombre, tipoSangre);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     
@@ -180,9 +161,7 @@ public class ModificarDonant extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField txtDonacion;
     private javax.swing.JTextField txtIdCampania;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRut;

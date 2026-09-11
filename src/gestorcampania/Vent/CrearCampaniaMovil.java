@@ -169,7 +169,7 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
         LocalDate fecha;
         controlador = new ControladorCampania(this.gestor);
         if(texto.equals("")){
-            controlador.crearCampaniaFija(idCampania, nombre, ubicacion);
+            controlador.crearCampaniaMovil(idCampania, nombre, ubicacion);
         }else{
             if(validadorCampos.esFecha(texto) == true){
                 fecha = LocalDate.parse(texto);

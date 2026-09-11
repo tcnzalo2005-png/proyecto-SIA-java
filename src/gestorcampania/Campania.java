@@ -92,11 +92,11 @@ public abstract class Campania {
         }
         return cosa;
     }
-    public void modificarDonante(String rut, String nombreDonante, Sangre tipoSangre, int donacion){
+    public void modificarDonante(String rut, String nombreDonante, Sangre tipoSangre){
         Donante d = donantesPorRut.get(rut);
         
         if(d != null){
-            d.modificarDonante(nombreDonante, tipoSangre, donacion);
+            d.modificarDonante(nombreDonante, tipoSangre);
         }
     }
     

@@ -155,9 +155,15 @@ public class CrearDonant extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String rut = txtRut.getText();
+        String texto = txtRut.getText();
+        String rut;
+        if(texto.equals("")){
+            JOptionPane.showMessageDialog(this, "Debe ingresar un rut válido.");
+            return;
+        }
+        rut = texto;
         
-        String texto = txtIdCampania.getText();
+        texto = txtIdCampania.getText();
         int idCampania;
         if(validadorCampos.esNumInt(texto) == true){
             idCampania = Integer.parseInt(texto);

@@ -11,21 +11,40 @@ public class ControladorDonantes {
     
     public void crearDonante(int idCampania, String rut, String nombre, Sangre tipoSangre, int donacion){
         Campania cmp = gestor.buscarCampania(idCampania);
-        cmp.crearDonante(rut,nombre,tipoSangre,donacion);
+        if(cmp != null){
+            cmp.crearDonante(rut,nombre,tipoSangre,donacion);
+        }
     }
     
     public void eliminarDonante(int idCampania, String rut){
         Campania cmp = gestor.buscarCampania(idCampania);
-        cmp.eliminarDonante(rut);
+        if(cmp != null){
+            cmp.eliminarDonante(rut);
+        }
     }
     
     public String mostrarDonantes(int idCampania){
         Campania cmp = gestor.buscarCampania(idCampania);
-        return cmp.mostrarDonante();
+        if(cmp != null){
+            return cmp.mostrarDonante();
+        }
+        return "No existe campaña";
     }
     
-    public void modificarDonante(int idCampania,String rut, String nombreDonante, Sangre tipoSangre, int donacion){
+    public void modificarDonante(int idCampania,String rut, String nombreDonante, Sangre tipoSangre){
         Campania cmp = gestor.buscarCampania(idCampania);
-        cmp.modificarDonante(rut, nombreDonante, tipoSangre, donacion);
+        if(cmp != null){
+            cmp.modificarDonante(rut, nombreDonante, tipoSangre);
+        }
+    }
+    
+    public void donar(int idCampania, String rut, int cantDonacion){
+        Campania campania = gestor.buscarCampania(idCampania);
+        if(campania != null){
+            Donante donante = campania.buscarDonante(rut);
+            if(donante != null){
+                donante.setDonacion(cantDonacion + donante.getDonacion());
+            }
+        }
     }
 }

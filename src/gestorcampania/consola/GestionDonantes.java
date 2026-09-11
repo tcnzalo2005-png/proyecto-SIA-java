@@ -85,23 +85,9 @@ public class GestionDonantes
         String nombre = scan.Str("Nombre: ");
 
         vista.vistaTipoSangre();
-        do
-        {
-            try
-            {
-                opcion = scan.Int();
-                sangre = Sangre.values()[opcion - 1];
+        
 
-                cantidad = scan.Int("Cantidad donada: ");
-            }
-            catch(ScanException e)
-            {
-                opcion = 0;
-            }
-        }
-        while(opcion < 1 || 8 > opcion );
-
-        campania.modificarDonante(rut, nombre, sangre, cantidad);
+        campania.modificarDonante(rut, nombre, sangre);
     }
 
     public void eliminarDonante(Campania campania)
