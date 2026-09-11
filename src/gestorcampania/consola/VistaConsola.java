@@ -58,7 +58,7 @@ public class VistaConsola
             " ===== MENU CONSULTAS =====\n" +
             "1- Total sangre donada\n" +
             "2- Total de donadores\n" +
-            "3- Total de sangre donada por tipo" +
+            "3- Total de sangre donada por tipo\n" +
             "0- Volver\n" 
         );
     }
@@ -153,12 +153,12 @@ public class VistaConsola
 
     public void msjSalir()
     {
-        System.out.println("Saliendo...");
+        System.out.println("Saliendo...\n");
     }
 
     public void msjVolver()
     {
-        System.out.println("Volviendo...");
+        System.out.println("Volviendo...\n");
     }
 
     public void entradaInvalida()
@@ -223,5 +223,29 @@ public class VistaConsola
     public void listarDonante(String donantes)
     {
         System.out.println(donantes);
+    }
+
+    public void mostarSangrePorTipo(GestorCampania gestor, Sangre tipo)
+    {
+        System.out.println
+        (
+            gestor.totalSangreDonadaPorTipo(tipo)
+        );
+    }
+
+    public void mostarTotalDonadoes(GestorCampania gestor)
+    {
+        System.out.println
+        (
+            gestor.totalDonadores()
+        );
+    }
+
+    public void mostrarTotalSangreDonada(GestorCampania gestor)
+    {
+        System.out.println
+        (
+            gestor.totalSangreDonada()
+        );
     }
 }

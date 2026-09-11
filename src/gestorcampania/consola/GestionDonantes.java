@@ -43,7 +43,7 @@ public class GestionDonantes
                 opcion = 0;
             }
         }
-        while(opcion < 1 || 8 > opcion );
+        while(opcion < 1 || 8 < opcion );
 
         campania.crearDonante(rut, nombre, sangre);
     }
@@ -68,8 +68,6 @@ public class GestionDonantes
 
     public void modificarDonante(Campania campania)
     {
-        int cantidad = 0;
-        int opcion = 0;
         Sangre sangre = null;
 
         vista.vistaModificarDonante();
@@ -103,5 +101,10 @@ public class GestionDonantes
         }
 
         campania.eliminarDonante(rut);
+    }
+
+    public void listarDonantes(Campania campania)
+    {
+        System.out.println(campania.mostrarDonante());
     }
 }

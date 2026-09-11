@@ -13,13 +13,13 @@ public class GestionConsultas
     public void totalSangreDonada(GestorCampania gestor)
     {
         vista.vistaTotalSangreDonada();
-        gestor.totalSangreDonada();
+        vista.mostrarTotalSangreDonada(gestor);
     }
 
     public void totalDonadores(GestorCampania gestor)
     {
         vista.vistaTotalDonadores();
-        gestor.totalDonadores();
+        vista.mostarTotalDonadoes(gestor);
     }
 
     public void sangrePorTipo(GestorCampania gestor)
@@ -42,9 +42,10 @@ public class GestionConsultas
                 opcion = 0;
             }
         }
-        while(opcion < 1 || 8 > opcion);
+        while(opcion < 1 || 8 < opcion);
 
         vista.msjTotalDonado();
-        gestor.totalSangreDonadaPorTipo(tipo);
+
+        vista.mostarSangrePorTipo(gestor, tipo);
     }
 }

@@ -54,7 +54,7 @@ public class MenuDonantes
                         vista.noCampaniaEncontrada(opcion);
 
                     else
-                        campania.mostrarDonante();
+                        ges.listarDonantes(campania);
 
                     break;
 

@@ -135,7 +135,7 @@ public static void main(String[] args){
 
     if(opcion == 1){
 
-        System.out.println("ingreso a consola...");
+        System.out.println("ingreso a consola...\n");
 
         MenuConsola consola = new MenuConsola();
         consola.menu(gestor);
