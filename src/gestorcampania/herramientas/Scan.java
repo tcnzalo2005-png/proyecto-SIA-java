@@ -1,6 +1,7 @@
-package herramientas;
+package gestorcampania.herramientas;
 
-import herramientas.excepciones.ScanException;
+import gestorcampania.herramientas.excepciones.ScanException;
+
 import java.util.Scanner;
 
 public class Scan

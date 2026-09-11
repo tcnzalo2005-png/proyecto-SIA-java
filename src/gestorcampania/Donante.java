@@ -44,6 +44,11 @@ public class Donante {
         this.tipoSangre = tipoSangre;
     }
 
+    public void donar(int donacion)
+    {
+        this.donacion += donacion;
+    }
+
     public String mostrar(){
         return  "Rut: " + getRut() +
                 "\nNombre: " + getNombreDonante() +

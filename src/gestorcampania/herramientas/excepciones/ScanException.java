@@ -1,4 +1,4 @@
-package herramientas.excepciones;
+package gestorcampania.herramientas.excepciones;
 
 public class ScanException extends Exception
 {
