@@ -45,10 +45,11 @@ public class VistaConsola
         (
             "1- Seleccionar campaña\n" +
             "2- Crear donante\n" +
-            "3- Listar donante\n" +
-            "4- Buscar donante\n" +
-            "5- Modificar donante\n" +
-            "6- Eliminar donante\n" +
+            "3- Donar sangre\n" +
+            "4- Listar donante\n" +
+            "5- Buscar donante\n" +
+            "6- Modificar donante\n" +
+            "7- Eliminar donante\n" +
             "0- Volver\n"
         );
     }
@@ -249,5 +250,20 @@ public class VistaConsola
         (
             gestor.totalSangreDonada()
         );
+    }
+
+    public void mostrarBuscarDonante(String msg)
+    {
+        System.out.println(msg);
+    }
+
+    public void vistaDonarSangre()
+    {
+        System.out.println(" ===== DONAR SANGRE =====");
+    }
+
+    public void msjDonacionInvalida()
+    {
+        System.out.println("Donacion invalida");
     }
 }

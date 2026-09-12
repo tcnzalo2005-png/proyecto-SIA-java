@@ -48,8 +48,16 @@ public class MenuDonantes
                         ges.crearDonante(campania);
 
                     break;
-
                 case 3:
+                    if(campania == null)
+                        vista.noCampaniaSeleccionada();
+
+                    else
+                        ges.donarSangre(campania);
+                    
+                    break;
+
+                case 4:
                     if(campania == null)
                         vista.noCampaniaEncontrada(opcion);
 
@@ -58,7 +66,7 @@ public class MenuDonantes
 
                     break;
 
-                case 4:
+                case 5:
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
 
@@ -67,14 +75,16 @@ public class MenuDonantes
 
                     break;
 
-                case 5:
+                case 6:
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
 
                     else
                         ges.modificarDonante(campania);
 
-                case 6: 
+                    break;
+
+                case 7: 
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
 

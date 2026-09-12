@@ -9,6 +9,7 @@ idCampania,nombreCampania,fecha,tipoCampania,ubicacion,rut,nombreDonante,tipoSan
 12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,17.910.334-8,Cristobal Araya,O_NEGATIVO,450
 12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,21.936.307-9,Nicolas Castellano,A_NEGATIVO,3000
 12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,20.892.110-9,Diego Godoy,B_NEGATIVO,400
+12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,20,cani,A_POSITIVO,0
 12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,19.102.883-4,Nicolas Munoz,A_POSITIVO,450
 25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,21.010.213-2,Benjamin Concha,A_POSITIVO,450
 25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,15.892.443-2,Roberto Gomez,O_POSITIVO,450

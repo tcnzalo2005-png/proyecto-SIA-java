@@ -47,7 +47,9 @@ public class MenuCampanias
 
                 case 3:
                     campania = ges.buscarCampania(gestor);
-                    vista.mostrarCampania(campania.mostrarCampania());
+                    if(campania != null)
+                        vista.mostrarCampania(campania.mostrarCampania());
+                    
                     break;
 
                 case 4:

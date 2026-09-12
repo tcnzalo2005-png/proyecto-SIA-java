@@ -61,7 +61,7 @@ public class GestionDonantes
             vista.noDonanteEncontrado();
 
         else
-            donante.mostrar();
+            vista.mostrarBuscarDonante(donante.mostrar());
 
         return donante;
     }
@@ -119,5 +119,35 @@ public class GestionDonantes
     public void listarDonantes(Campania campania)
     {
         System.out.println(campania.mostrarDonante());
+    }
+
+    public void donarSangre(Campania campania)
+    {
+        int donacion = 0;
+        vista.vistaDonarSangre();
+
+        String rut = scan.Str("Rut: ");
+
+        Donante donante = campania.buscarDonante(rut);
+        if(donante == null)
+        {
+            vista.noDonanteEncontrado();
+            return;
+        }
+
+        try
+        {
+            donacion = scan.Int("Cantidad donada: ");
+        }
+        catch(ScanException e)
+        {
+            vista.entradaInvalida();
+        }
+
+        if(donacion <= 0)
+            vista.msjDonacionInvalida();
+
+        else
+            donante.donar(donacion);
     }
 }
