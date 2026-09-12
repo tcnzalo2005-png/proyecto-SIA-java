@@ -90,3 +90,4 @@ El proyecto utiliza **Git** para el control de versiones y **GitHub** como repos
 * Nicolás Caniguante
 * Nicolás Castellano
 * Benjamín Concha
+* Lucas Salamanca
