@@ -35,7 +35,7 @@ public class GestionDonantes
         {
             try
             {
-                opcion = scan.Int();
+                opcion = scan.Int("Opcion: ");
                 sangre = Sangre.values()[opcion - 1];
             }
             catch(ScanException e)
@@ -68,6 +68,7 @@ public class GestionDonantes
 
     public void modificarDonante(Campania campania)
     {
+        int opcion = 0;
         Sangre sangre = null;
 
         vista.vistaModificarDonante();
@@ -79,12 +80,24 @@ public class GestionDonantes
             return;
         }
 
-        String rut = scan.Str("Rut: ");
-        String nombre = scan.Str("Nombre: ");
+        String rut = scan.Str("Nuevo Rut: ");
+        String nombre = scan.Str("Nuevo Nombre: ");
 
         vista.vistaTipoSangre();
+        do
+        {
+            try
+            {
+                opcion = scan.Int("Opcion: ");
+                sangre = Sangre.values()[opcion - 1];
+            }
+            catch(ScanException e)
+            {
+                opcion = 0;
+            }
+        }
+        while(opcion < 1 || 8 < opcion);
         
-
         campania.modificarDonante(rut, nombre, sangre);
     }
 
@@ -92,7 +105,7 @@ public class GestionDonantes
     {
         vista.vistaEliminarDonante();
 
-        String rut = scan.Str();
+        String rut = scan.Str("Ingrese Rut: ");
 
         if(campania.buscarDonante(rut) == null)
         {

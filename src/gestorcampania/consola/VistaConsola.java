@@ -200,7 +200,7 @@ public class VistaConsola
 
     public void vistaTipoSangre()
     {
-        System.out.println(" = TIPOS DE SANGRE =\n");
+        System.out.println(" = TIPOS DE SANGRE =");
 
         int i = 1;
 

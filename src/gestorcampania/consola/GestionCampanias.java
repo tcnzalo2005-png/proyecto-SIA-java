@@ -23,7 +23,7 @@ public class GestionCampanias
 
             try
             {
-                tipo = scan.Int();
+                tipo = scan.Int("Tipo campaña: ");
             }
             catch(ScanException e)
             {
@@ -60,7 +60,7 @@ public class GestionCampanias
 
         try
         {
-            id = scan.Int();
+            id = scan.Int("Id: ");
         }
         catch(ScanException e)
         {
@@ -76,7 +76,7 @@ public class GestionCampanias
         {
             try
             {
-                opcion = scan.Int();
+                opcion = scan.Int("Opcion: ");
             }
             catch(ScanException e)
             {
@@ -110,7 +110,7 @@ public class GestionCampanias
 
         try
         {
-            id = scan.Int();
+            id = scan.Int("Id: ");
         }
         catch(ScanException e)
         {
@@ -126,7 +126,7 @@ public class GestionCampanias
         {
             try
             {
-                opcion = scan.Int();
+                opcion = scan.Int("Opcion: ");
             }
             catch(ScanException e)
             {
@@ -222,7 +222,7 @@ public class GestionCampanias
         {
             try
             {
-                opcion = scan.Int();
+                opcion = scan.Int("Opcion: ");
             }
             catch(ScanException e)
             {
@@ -256,7 +256,7 @@ public class GestionCampanias
 
         try
         {
-            id = scan.Int();
+            id = scan.Int("Id: ");
         }
         catch(ScanException e)
         {
