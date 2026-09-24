@@ -90,6 +90,8 @@ public class MenuDonantes
 
                     else
                         ges.eliminarDonante(campania);
+                    
+                    break;
 
                 default:
                     vista.entradaInvalida();
