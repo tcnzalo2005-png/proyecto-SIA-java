@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import gestorcampania.herramientas.ValidadorCamposDeVentana;
 
+/*Ventana encargada de mostrar la interfaz para poder crear una campaña fija*/
 public class CrearCampaniaFija extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorCampania controlador;
@@ -13,14 +14,14 @@ public class CrearCampaniaFija extends javax.swing.JFrame {
    
     public CrearCampaniaFija(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
-        validadorCampos = new ValidadorCamposDeVentana();
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
     public CrearCampaniaFija() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        validadorCampos = new ValidadorCamposDeVentana();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
 
     
@@ -137,10 +138,11 @@ public class CrearCampaniaFija extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado hacer la accion para crear una campaña fija*/
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         String texto = txtIdCampania.getText();
         int idCampania = 0;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
              idCampania = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
@@ -149,7 +151,7 @@ public class CrearCampaniaFija extends javax.swing.JFrame {
         
         texto = txtNombre.getText();
         String nombre;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que no contenga datos numericos*/
             nombre = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
@@ -158,7 +160,7 @@ public class CrearCampaniaFija extends javax.swing.JFrame {
         
         texto = txtUbicacion.getText();
         String ubicacion;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que no contenga datos numericos*/
             ubicacion = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
@@ -168,10 +170,10 @@ public class CrearCampaniaFija extends javax.swing.JFrame {
         texto = txtFecha.getText();
         LocalDate fecha;
         controlador = new ControladorCampania(this.gestor);
-        if(texto.equals("")){
+        if(texto.equals("")){/*Permite al sistema implementar la fecha actual de forma automatica si se deja el campo vacio*/
             controlador.crearCampaniaFija(idCampania, nombre, ubicacion);
         }else{
-            if(validadorCampos.esFecha(texto) == true){
+            if(validadorCampos.esFecha(texto) == true){/*Valida que la fehca este correcta y en el orden correcto*/
                 fecha = LocalDate.parse(texto);
             }else{
                 JOptionPane.showMessageDialog(this, "Debe ingresar una fecha correcta (AÑO-MES-DIA)");

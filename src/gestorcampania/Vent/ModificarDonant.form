@@ -33,10 +33,10 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="cmbTipoSangre" min="-2" max="-2" attributes="0"/>
                   <Component id="txtIdCampania" pref="190" max="32767" attributes="0"/>
                   <Component id="txtRut" max="32767" attributes="0"/>
                   <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cmbTipoSangre" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="222" max="32767" attributes="0"/>
           </Group>
@@ -138,7 +138,7 @@
             <StringItem index="1" value="A_POSITIVO"/>
             <StringItem index="2" value="A_NEGATIVO"/>
             <StringItem index="3" value="B_POSITIVO"/>
-            <StringItem index="4" value="B_POSITIVO"/>
+            <StringItem index="4" value="B_NEGATIVO"/>
             <StringItem index="5" value="AB_POSITIVO"/>
             <StringItem index="6" value="AB_NEGATIVO"/>
             <StringItem index="7" value="O_POSITIVO"/>

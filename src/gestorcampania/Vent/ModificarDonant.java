@@ -6,6 +6,7 @@ import gestorcampania.Sangre;
 import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import javax.swing.JOptionPane;
 
+/*Ventana encargada de mostrar la interfaz para modificar un donante en especifico*/
 public class ModificarDonant extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorDonantes controlador;
@@ -13,14 +14,14 @@ public class ModificarDonant extends javax.swing.JFrame {
    
     public ModificarDonant(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
-        validadorCampos = new ValidadorCamposDeVentana();
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
     public ModificarDonant() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        validadorCampos = new ValidadorCamposDeVentana();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
 
     
@@ -59,7 +60,7 @@ public class ModificarDonant extends javax.swing.JFrame {
 
         jLabel6.setText("Tipo de sangre");
 
-        cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_POSITIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
+        cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_NEGATIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,10 +75,10 @@ public class ModificarDonant extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIdCampania, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(txtRut)
-                    .addComponent(txtNombre))
+                    .addComponent(txtNombre)
+                    .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(222, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,10 +119,11 @@ public class ModificarDonant extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado de hacer la accio de modificar un donante*/
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         String texto = txtIdCampania.getText();
         int idCampania;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
             idCampania = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
@@ -130,7 +132,7 @@ public class ModificarDonant extends javax.swing.JFrame {
         
         texto = txtNombre.getText();
         String nombre;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que el nombre del donante no contengan numeros*/
             nombre = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
@@ -139,14 +141,14 @@ public class ModificarDonant extends javax.swing.JFrame {
         
         String rut = txtRut.getText();
         
-        String seleccion = (String) cmbTipoSangre.getSelectedItem();
+        String seleccion = (String) cmbTipoSangre.getSelectedItem();/*Selecciona el tipo de sangre*/
         
-        if(seleccion.equals("-")){
+        if(seleccion.equals("-")){/*para caso que no se ingrese ningun tipo de sangre*/
             JOptionPane.showMessageDialog(null,"Seleccione un tipo de sangre");
             return;
         }
         
-        Sangre tipoSangre = Sangre.valueOf(seleccion);
+        Sangre tipoSangre = Sangre.valueOf(seleccion);/*Para transformar el tipo de sangre al enum declarado*/
         controlador = new ControladorDonantes(gestor);
         
         controlador.modificarDonante(idCampania, rut, nombre, tipoSangre);

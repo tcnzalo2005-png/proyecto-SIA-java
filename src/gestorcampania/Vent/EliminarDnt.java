@@ -5,6 +5,7 @@ import gestorcampania.ControladorDonantes;
 import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import javax.swing.JOptionPane;
 
+/*Ventana encargada de mostrar la interfaz para poder eliminar un donante en especificio de una campaña en especifica*/
 public class EliminarDnt extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorDonantes controlador;
@@ -12,14 +13,14 @@ public class EliminarDnt extends javax.swing.JFrame {
     
     public EliminarDnt(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
-        validadorCampos = new ValidadorCamposDeVentana();
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
     public EliminarDnt() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        validadorCampos = new ValidadorCamposDeVentana();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
 
     
@@ -96,10 +97,11 @@ public class EliminarDnt extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado de hacer la accion para eliminar un donante*/
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String texto = txtIdCampania.getText();
         int idCampania;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
             idCampania = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");

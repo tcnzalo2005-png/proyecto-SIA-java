@@ -6,6 +6,8 @@ import gestorcampania.Sangre;
 import gestorcampania.ControladorDonantes;
 import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import javax.swing.JOptionPane;
+
+/*Ventana encargada de mostrar la interfaz para poder crear un donante en una campaña en especifica*/
 public class CrearDonant extends javax.swing.JFrame {
     
     private GestorCampania gestor;
@@ -14,14 +16,14 @@ public class CrearDonant extends javax.swing.JFrame {
     
     public CrearDonant(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
-        validadorCampos = new ValidadorCamposDeVentana();
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
     public CrearDonant() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        validadorCampos = new ValidadorCamposDeVentana();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
 
   
@@ -54,7 +56,7 @@ public class CrearDonant extends javax.swing.JFrame {
 
         jLabel4.setText("Donacion:");
 
-        cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_POSITIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
+        cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_NEGATIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
 
         jLabel5.setText("Tipo de sangre");
 
@@ -154,10 +156,11 @@ public class CrearDonant extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado de hacer la accion para crear un donante*/
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         String texto = txtRut.getText();
         String rut;
-        if(texto.equals("")){
+        if(texto.equals("")){/*Valida que se haya ingresado un rut (sin espacio en blanco)*/
             JOptionPane.showMessageDialog(this, "Debe ingresar un rut válido.");
             return;
         }
@@ -165,7 +168,7 @@ public class CrearDonant extends javax.swing.JFrame {
         
         texto = txtIdCampania.getText();
         int idCampania;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
             idCampania = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
@@ -174,7 +177,7 @@ public class CrearDonant extends javax.swing.JFrame {
         
         texto = txtNombre.getText();
         String nombre;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que no contenga datos numericos*/
             nombre = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
@@ -182,16 +185,16 @@ public class CrearDonant extends javax.swing.JFrame {
         }
         
         
-        String seleccion = (String) cmbTipoSangre.getSelectedItem();
-        if(seleccion.equals("-")){
+        String seleccion = (String) cmbTipoSangre.getSelectedItem();/*Hace la seleccion de tipo de sangre*/
+        if(seleccion.equals("-")){/*Valida que haya ingresado algun tipo de sangre*/
             JOptionPane.showMessageDialog(null,"Debe seleccionar algun tipo de sangre");
             return;
         }
-        Sangre tipoSangre = Sangre.valueOf(seleccion);
+        Sangre tipoSangre = Sangre.valueOf(seleccion);/*Transforma el tipo de sangre al indicado por el enum*/
         
         texto = txtDonacion.getText();
         int donacion;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
             donacion = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(null,"Debe ingresar un numero entero valido");

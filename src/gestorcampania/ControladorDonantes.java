@@ -47,4 +47,16 @@ public class ControladorDonantes {
             }
         }
     }
+    
+    public String buscarDonante(int idCampania, String rut){
+        Campania campania = gestor.buscarCampania(idCampania);
+        if(campania != null){
+            Donante donante = campania.buscarDonante(rut);
+            if(donante != null){
+                return donante.mostrar();
+            }
+            
+        }
+        return "No se encontro donante o campaña";
+    }
 }

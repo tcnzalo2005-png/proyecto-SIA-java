@@ -167,7 +167,7 @@
                 <StringItem index="1" value="A_POSITIVO"/>
                 <StringItem index="2" value="A_NEGATIVO"/>
                 <StringItem index="3" value="B_POSITIVO"/>
-                <StringItem index="4" value="B_POSITIVO"/>
+                <StringItem index="4" value="B_NEGATIVO"/>
                 <StringItem index="5" value="AB_POSITIVO"/>
                 <StringItem index="6" value="AB_NEGATIVO"/>
                 <StringItem index="7" value="O_POSITIVO"/>

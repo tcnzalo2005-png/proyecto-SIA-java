@@ -6,6 +6,7 @@ import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
+/*Ventana encargada de mostrar la interfaz para poder crear una campaña movil*/
 public class CrearCampaniaMovil extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorCampania controlador;
@@ -13,14 +14,14 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
    
     public CrearCampaniaMovil(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
-        validadorCampos = new ValidadorCamposDeVentana();
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
     public CrearCampaniaMovil() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        validadorCampos = new ValidadorCamposDeVentana();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
 
     
@@ -137,10 +138,11 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado de hacer la accion para crear una campaña movil*/
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         String texto = txtIdCampania.getText();
         int idCampania = 0;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
              idCampania = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
@@ -149,7 +151,7 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
         
         texto = txtNombre.getText();
         String nombre;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que no contenga datos numericos*/
             nombre = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacion ni con numeros)");
@@ -158,7 +160,7 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
         
         texto = txtUbicacion.getText();
         String ubicacion;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que no contenga datos numericos*/
             ubicacion = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacion ni con numeros)");
@@ -168,10 +170,10 @@ public class CrearCampaniaMovil extends javax.swing.JFrame {
         texto = txtFecha.getText();
         LocalDate fecha;
         controlador = new ControladorCampania(this.gestor);
-        if(texto.equals("")){
+        if(texto.equals("")){/*Permite al sistema de forma automatica ingresar la fecha actual si el campo de la fecha esta vacia*/
             controlador.crearCampaniaMovil(idCampania, nombre, ubicacion);
         }else{
-            if(validadorCampos.esFecha(texto) == true){
+            if(validadorCampos.esFecha(texto) == true){/*Valida que contenga una fecha correcta y en el orden pedido*/
                 fecha = LocalDate.parse(texto);
             }else{
                 JOptionPane.showMessageDialog(this, "Debe ingresar una fecha correcta (AÑO-MES-DIA)");

@@ -84,7 +84,7 @@
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
@@ -130,6 +130,7 @@
                           <Component id="btnEliminarCampania" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnMostrarCampania" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnModificarCampania" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnBuscarCampania" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -148,7 +149,9 @@
                       <Component id="btnMostrarCampania" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnModificarCampania" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnBuscarCampania" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -194,6 +197,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearCampaniaFijaActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="btnBuscarCampania">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar campa&#xf1;a"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarCampaniaActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
@@ -209,6 +220,7 @@
                           <Component id="btnMostrarDonante" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnModificarDonante" alignment="1" pref="298" max="32767" attributes="0"/>
                           <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnBuscarDonante" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -226,7 +238,9 @@
                       <Component id="btnModificarDonante" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnBuscarDonante" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -270,6 +284,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBuscarDonante">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar donante"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarDonanteActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -357,7 +379,7 @@
                     <StringItem index="1" value="A_POSITIVO"/>
                     <StringItem index="2" value="A_NEGATIVO"/>
                     <StringItem index="3" value="B_POSITIVO"/>
-                    <StringItem index="4" value="B_POSITIVO"/>
+                    <StringItem index="4" value="B_NEGATIVO"/>
                     <StringItem index="5" value="AB_POSITIVO"/>
                     <StringItem index="6" value="AB_NEGATIVO"/>
                     <StringItem index="7" value="O_POSITIVO"/>

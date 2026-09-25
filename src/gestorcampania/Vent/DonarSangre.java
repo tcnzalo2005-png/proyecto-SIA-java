@@ -6,6 +6,7 @@ import gestorcampania.GestorCampania;
 import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import javax.swing.JOptionPane;
 
+/*Ventana encargada de mostrar la interfaz para poder permitir donar (aumentar la cantidad tambien) sangre*/
 public class DonarSangre extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorDonantes controlador;
@@ -13,13 +14,13 @@ public class DonarSangre extends javax.swing.JFrame {
     
     public DonarSangre(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
-        validadorCampos = new ValidadorCamposDeVentana();
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
     public DonarSangre() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
     }
 
     @SuppressWarnings("unchecked")
@@ -127,10 +128,11 @@ public class DonarSangre extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado de hacer la accion para aumentar la cantidad de sangre que dono un donante*/
     private void btnDonarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonarActionPerformed
        String texto = txtIdCampania.getText();
        int idCampania;
-       if(validadorCampos.esNumInt(texto) == true){
+       if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
            idCampania = Integer.parseInt(texto);
        }else{
            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
@@ -141,7 +143,7 @@ public class DonarSangre extends javax.swing.JFrame {
        
        texto = txtCantidadDonacion.getText();
        int cantDonacion;
-       if(validadorCampos.esNumInt(texto) == true){
+       if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
            cantDonacion = Integer.parseInt(texto);
        }else{
            JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");

@@ -48,4 +48,12 @@ public class ControladorCampania {
     public int totalSangrePorTipo(Sangre tipoSangre){
         return gestor.totalSangreDonadaPorTipo(tipoSangre);
     }
+    
+    public String buscarCampania(int idCampania){
+        Campania campania = gestor.buscarCampania(idCampania);
+        if(campania != null){
+            return campania.mostrarCampania();
+        }
+        return "No se encontro campaña";
+    }
 }

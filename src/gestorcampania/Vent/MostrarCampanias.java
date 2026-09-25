@@ -4,18 +4,19 @@ package gestorcampania.Vent;
 import gestorcampania.GestorCampania;
 import gestorcampania.ControladorCampania;
 
+/*Ventana para mostrar todas las campañas existentes*/
 public class MostrarCampanias extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorCampania controlador;
     
     public MostrarCampanias(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
     }
     public MostrarCampanias() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
     }
 
    
@@ -75,6 +76,7 @@ public class MostrarCampanias extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado de hacer la accion de mostrar todas las campañas*/
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
 
         controlador = new ControladorCampania(gestor);

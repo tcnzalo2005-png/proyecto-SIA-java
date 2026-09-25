@@ -5,6 +5,7 @@ import gestorcampania.ControladorDonantes;
 import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import javax.swing.JOptionPane;
 
+/*Ventana encargada de mostrar todos los donantes de una campaña*/
 public class MostrarDonant extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorDonantes controlador;
@@ -12,13 +13,13 @@ public class MostrarDonant extends javax.swing.JFrame {
     
     public MostrarDonant(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
         validadorCampos = new ValidadorCamposDeVentana();
     }
     public MostrarDonant() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         validadorCampos = new ValidadorCamposDeVentana();
     }
 
@@ -104,10 +105,11 @@ public class MostrarDonant extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdCampaniaActionPerformed
 
+    /*Boton encargado para hacer la accion de mostrar todos los donantes*/
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         String texto = txtIdCampania.getText();
         int idCampania;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida si el texto es numerico*/
             idCampania = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");

@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import gestorcampania.GestorCampania;
 import gestorcampania.Sangre;
 
+/*Ventana principal encargada unicamente de permitir las conexciones de las otras ventanas y implementar algun que otro boton*/
 public class MenuVentana extends javax.swing.JFrame {
     
     private GestorCampania gestor;
@@ -13,12 +14,12 @@ public class MenuVentana extends javax.swing.JFrame {
     
     public MenuVentana(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
     }
     public MenuVentana() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
     }
 
     @SuppressWarnings("unchecked")
@@ -34,12 +35,14 @@ public class MenuVentana extends javax.swing.JFrame {
         btnMostrarCampania = new javax.swing.JButton();
         btnModificarCampania = new javax.swing.JButton();
         btnCrearCampaniaFija = new javax.swing.JButton();
+        btnBuscarCampania = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnCrearDonante = new javax.swing.JButton();
         btnEliminarDonante = new javax.swing.JButton();
         btnMostrarDonante = new javax.swing.JButton();
         btnModificarDonante = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnBuscarDonante = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btnTotalSangreDonada = new javax.swing.JButton();
@@ -91,6 +94,13 @@ public class MenuVentana extends javax.swing.JFrame {
             }
         });
 
+        btnBuscarCampania.setText("Buscar campaña");
+        btnBuscarCampania.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCampaniaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -102,7 +112,8 @@ public class MenuVentana extends javax.swing.JFrame {
                     .addComponent(btnCrearCampaniaMovil, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                     .addComponent(btnEliminarCampania, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrarCampania, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModificarCampania, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnModificarCampania, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscarCampania, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -118,7 +129,9 @@ public class MenuVentana extends javax.swing.JFrame {
                 .addComponent(btnMostrarCampania)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnModificarCampania)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarCampania)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         btnCrearDonante.setText("Crear ");
@@ -156,6 +169,13 @@ public class MenuVentana extends javax.swing.JFrame {
             }
         });
 
+        btnBuscarDonante.setText("Buscar donante");
+        btnBuscarDonante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDonanteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -167,7 +187,8 @@ public class MenuVentana extends javax.swing.JFrame {
                     .addComponent(btnEliminarDonante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrarDonante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModificarDonante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscarDonante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +203,9 @@ public class MenuVentana extends javax.swing.JFrame {
                 .addComponent(btnModificarDonante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarDonante)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -209,7 +232,7 @@ public class MenuVentana extends javax.swing.JFrame {
             }
         });
 
-        cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_POSITIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
+        cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "A_POSITIVO", "A_NEGATIVO", "B_POSITIVO", "B_NEGATIVO", "AB_POSITIVO", "AB_NEGATIVO", "O_POSITIVO", "O_NEGATIVO" }));
 
         jLabel4.setText("Tipo de sangre:");
 
@@ -285,7 +308,7 @@ public class MenuVentana extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -311,6 +334,7 @@ public class MenuVentana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnCrearCampaniaFijaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCampaniaFijaActionPerformed
         CrearCampaniaFija pantalla = new CrearCampaniaFija(gestor);
         pantalla.setVisible(true);
@@ -366,16 +390,19 @@ public class MenuVentana extends javax.swing.JFrame {
         pantalla.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnModificarDonanteActionPerformed
 
+    /*Boton encargado de hacer la accion para mostrar el total de la sangre donadas por todos los donantes*/
     private void btnTotalSangreDonadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalSangreDonadaActionPerformed
         controlador = new ControladorCampania(gestor);
         JOptionPane.showMessageDialog(null,controlador.totalSangreDonada());
     }//GEN-LAST:event_btnTotalSangreDonadaActionPerformed
 
+    /*Boton encargado de hacer la accion para mostrar el total de donadores existentes*/
     private void btnTotalDonadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalDonadoresActionPerformed
         controlador = new ControladorCampania(gestor);
         JOptionPane.showMessageDialog(null,controlador.totalDonadores());
     }//GEN-LAST:event_btnTotalDonadoresActionPerformed
 
+    /*Boton encargado de hacer la accion para mostrar el total de la sangre donadas por todos los donantes de un tipo de sangre en especifico*/
     private void btnTotalSangreDonadaDeUnTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalSangreDonadaDeUnTipoActionPerformed
         String seleccion = (String)cmbTipoSangre.getSelectedItem();
         if(seleccion.equals("-")){
@@ -394,8 +421,22 @@ public class MenuVentana extends javax.swing.JFrame {
         pantalla.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnBuscarCampaniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCampaniaActionPerformed
+        BuscarCampania pantalla = new BuscarCampania(gestor);
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnBuscarCampaniaActionPerformed
+
+    private void btnBuscarDonanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDonanteActionPerformed
+       BuscarDonante pantalla = new BuscarDonante(gestor);
+       pantalla.setVisible(true);
+       pantalla.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnBuscarDonanteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarCampania;
+    private javax.swing.JButton btnBuscarDonante;
     private javax.swing.JButton btnCrearCampaniaFija;
     private javax.swing.JButton btnCrearCampaniaMovil;
     private javax.swing.JButton btnCrearDonante;

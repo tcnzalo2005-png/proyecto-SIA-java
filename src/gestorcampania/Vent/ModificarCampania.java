@@ -6,6 +6,7 @@ import gestorcampania.herramientas.ValidadorCamposDeVentana;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
+/*Ventana encargada de mostrar la interfaz para modificar una campaña en especifico*/
 public class ModificarCampania extends javax.swing.JFrame {
     private GestorCampania gestor;
     private ControladorCampania controlador;
@@ -13,14 +14,14 @@ public class ModificarCampania extends javax.swing.JFrame {
     
     public ModificarCampania(GestorCampania gestor){
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
         this.gestor = gestor;
-        validadorCampos = new ValidadorCamposDeVentana();
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
     public ModificarCampania() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        validadorCampos = new ValidadorCamposDeVentana();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);/*Para cerrar unicamente esta ventana y que no cierre todo el programa*/
+        validadorCampos = new ValidadorCamposDeVentana();/*Validacion de diferentes campos segun lo requerido*/
     }
 
     
@@ -124,10 +125,11 @@ public class ModificarCampania extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /*Boton encargado de hacer la accion para modificar una campaña*/
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         String texto = txtIdCampania.getText();
         int idCampania;
-        if(validadorCampos.esNumInt(texto) == true){
+        if(validadorCampos.esNumInt(texto) == true){/*Valida que sea de tipo numerico*/
             idCampania = Integer.parseInt(texto);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un número entero válido.");
@@ -136,7 +138,7 @@ public class ModificarCampania extends javax.swing.JFrame {
         
         texto = txtNombre.getText();
         String nombre;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que no contenga valores numericos*/
             nombre = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
@@ -145,7 +147,7 @@ public class ModificarCampania extends javax.swing.JFrame {
         
         texto = txtUbicacion.getText();
         String ubicacion;
-        if(validadorCampos.esTexto(texto) == true){
+        if(validadorCampos.esTexto(texto) == true){/*Valida que no contenga valores numericos*/
             ubicacion = texto;
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar un texto valido (no vacio ni con numeros)");
@@ -155,10 +157,13 @@ public class ModificarCampania extends javax.swing.JFrame {
         texto = txtFecha.getText();
         LocalDate fecha;
         controlador = new ControladorCampania(this.gestor);
+        /*Implementar una modificacion pero sin ingreso de la fecha por el usuario(se agrega de forma automatica la fecha actual*/
         if(texto.equals("")){
             controlador.modificarCampania(idCampania, nombre, ubicacion);
+            
+        /*Implementa la modificacion con una fecha asignada por el usuario*/
         }else{
-            if(validadorCampos.esFecha(texto) == true){
+            if(validadorCampos.esFecha(texto) == true){/*Valida que se haya ingresado correctamente una fecha en el orden pedido */
                 fecha = LocalDate.parse(texto);
             }else{
                 JOptionPane.showMessageDialog(this, "Debe ingresar una fecha correcta (AÑO-MES-DIA)");
