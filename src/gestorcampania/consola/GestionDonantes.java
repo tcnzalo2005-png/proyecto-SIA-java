@@ -80,7 +80,6 @@ public class GestionDonantes
             return;
         }
 
-        String rut = scan.Str("Nuevo Rut: ");
         String nombre = scan.Str("Nuevo Nombre: ");
 
         vista.vistaTipoSangre();
@@ -98,7 +97,7 @@ public class GestionDonantes
         }
         while(opcion < 1 || 8 < opcion);
         
-        campania.modificarDonante(rut, nombre, sangre);
+        campania.modificarDonante(donante.getRut(), nombre, sangre);
     }
 
     public void eliminarDonante(Campania campania)
