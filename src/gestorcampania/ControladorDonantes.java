@@ -1,6 +1,8 @@
 
 package gestorcampania;
 
+import gestorcampania.herramientas.excepciones.DonarException;
+
 
 public class ControladorDonantes {
     private GestorCampania gestor;
@@ -38,25 +40,30 @@ public class ControladorDonantes {
         }
     }
     
-    public void donar(int idCampania, String rut, int cantDonacion){
+    public void donar(int idCampania, String rut, int cantDonacion) throws DonarException{
         Campania campania = gestor.buscarCampania(idCampania);
         if(campania != null){
             Donante donante = campania.buscarDonante(rut);
-            if(donante != null){
-                donante.setDonacion(cantDonacion + donante.getDonacion());
+            if(donante == null){
+               throw new DonarException("ERROR, no se encontro el donante ");
             }
+            donante.donar(cantDonacion);
         }
     }
     
-    public String buscarDonante(int idCampania, String rut){
+    public String buscarDonante(int idCampania, String rut) {
         Campania campania = gestor.buscarCampania(idCampania);
         if(campania != null){
-            Donante donante = campania.buscarDonante(rut);
-            if(donante != null){
+            try{
+                Donante donante = campania.buscarDonante(rut);
                 return donante.mostrar();
+            }catch(DonarException e){
+                return e.getMessage();
             }
+           
+            
             
         }
-        return "No se encontro donante o campaña";
+        return "No se encontro campaña";
     }
 }

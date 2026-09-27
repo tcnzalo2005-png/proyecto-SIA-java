@@ -2,6 +2,7 @@ package gestorcampania.consola;
 
 import gestorcampania.GestorCampania;
 import gestorcampania.herramientas.Scan;
+import gestorcampania.herramientas.excepciones.DonarException;
 import gestorcampania.herramientas.excepciones.ScanException;
 
 public class MenuConsola
@@ -13,7 +14,7 @@ public class MenuConsola
     MenuDonantes menuDon = new MenuDonantes();
     MenuConsultas menuCon = new MenuConsultas();
 
-    public void menu(GestorCampania gestor)
+    public void menu(GestorCampania gestor) throws DonarException
     {
         int opcion = 0;
 

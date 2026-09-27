@@ -1,5 +1,6 @@
     package gestorcampania;
 
+import gestorcampania.herramientas.excepciones.DonarException;
 import java.util.*;
 import java.time.LocalDate;
 
@@ -81,9 +82,14 @@ public abstract class Campania {
     public void eliminarDonante(String rut){
         donantesPorRut.remove(rut);
     }
-    public Donante buscarDonante(String rut){
-        return donantesPorRut.get(rut);
+    public Donante buscarDonante(String rut)throws DonarException{
+        Donante donante = donantesPorRut.get(rut);
+        if(donante == null){
+            throw new DonarException("ERROR, no se encontro el donante ");
+        }
+        return donante;
     }
+    
     public String mostrarDonante(){
         String cosa = "";
         for(Donante i : donantesPorRut.values()){

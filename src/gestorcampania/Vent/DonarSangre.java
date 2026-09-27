@@ -4,6 +4,7 @@ package gestorcampania.Vent;
 import gestorcampania.ControladorDonantes;
 import gestorcampania.GestorCampania;
 import gestorcampania.herramientas.ValidadorCamposDeVentana;
+import gestorcampania.herramientas.excepciones.DonarException;
 import javax.swing.JOptionPane;
 
 /*Ventana encargada de mostrar la interfaz para poder permitir donar (aumentar la cantidad tambien) sangre*/
@@ -151,7 +152,11 @@ public class DonarSangre extends javax.swing.JFrame {
        }
        
        controlador = new ControladorDonantes(gestor);
-       controlador.donar(idCampania, rut, cantDonacion);
+       try{
+            controlador.donar(idCampania, rut, cantDonacion);
+       }catch(DonarException e){
+           JOptionPane.showMessageDialog(this, e.getMessage() + "Debe ingresar un número entero válido.");
+       }
     }//GEN-LAST:event_btnDonarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

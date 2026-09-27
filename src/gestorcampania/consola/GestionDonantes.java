@@ -5,6 +5,7 @@ import gestorcampania.Campania;
 import gestorcampania.GestorCampania;
 import gestorcampania.Sangre;
 import gestorcampania.herramientas.Scan;
+import gestorcampania.herramientas.excepciones.DonarException;
 import gestorcampania.herramientas.excepciones.ScanException;
 
 public class GestionDonantes
@@ -55,13 +56,15 @@ public class GestionDonantes
         vista.vistaBuscarDonante();
 
         String rut = scan.Str("Rut: ");
-
-        donante = campania.buscarDonante(rut);
-        if(donante == null)
-            vista.noDonanteEncontrado();
-
-        else
+        
+        try{
+            donante = campania.buscarDonante(rut);
             vista.mostrarBuscarDonante(donante.mostrar());
+            
+        }catch(DonarException e){
+            System.out.println(e.getMessage());
+            
+        }
 
         return donante;
     }
@@ -73,12 +76,15 @@ public class GestionDonantes
 
         vista.vistaModificarDonante();
 
-        Donante donante = buscarDonante(campania);
-        if(donante == null)
-        {
-            vista.noDonanteEncontrado();
+        String rut = scan.Str("Rut: ");
+        Donante donante = null;
+        try{
+            donante = campania.buscarDonante(rut);
+        }catch(DonarException e){
+            System.out.println(e.getMessage());
             return;
         }
+
 
         String nombre = scan.Str("Nuevo Nombre: ");
 
@@ -94,6 +100,9 @@ public class GestionDonantes
             {
                 opcion = 0;
             }
+            catch(ArrayIndexOutOfBoundsException e){
+                System.out.println("Escoga una opcion valida");
+            }
         }
         while(opcion < 1 || 8 < opcion);
         
@@ -106,10 +115,10 @@ public class GestionDonantes
 
         String rut = scan.Str("Ingrese Rut: ");
 
-        if(campania.buscarDonante(rut) == null)
-        {
-            vista.noDonanteEncontrado();
-            return;
+        try{
+            campania.buscarDonante(rut);
+        }catch(DonarException e){
+            System.out.println(e.getMessage());
         }
 
         campania.eliminarDonante(rut);
@@ -120,7 +129,7 @@ public class GestionDonantes
         System.out.println(campania.mostrarDonante());
     }
 
-    public void donarSangre(Campania campania)
+    public void donarSangre(Campania campania) throws DonarException
     {
         int donacion = 0;
         vista.vistaDonarSangre();
@@ -143,10 +152,7 @@ public class GestionDonantes
             vista.entradaInvalida();
         }
 
-        if(donacion <= 0)
-            vista.msjDonacionInvalida();
-
-        else
-            donante.donar(donacion);
+       
+        donante.donar(donacion);
     }
 }

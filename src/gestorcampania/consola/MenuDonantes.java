@@ -3,6 +3,7 @@ package gestorcampania.consola;
 import gestorcampania.Campania;
 import gestorcampania.GestorCampania;
 import gestorcampania.herramientas.Scan;
+import gestorcampania.herramientas.excepciones.DonarException;
 import gestorcampania.herramientas.excepciones.ScanException;
 
 public class MenuDonantes
@@ -13,7 +14,7 @@ public class MenuDonantes
 
     Campania campania = null;
 
-    public void menuDonantes(GestorCampania gestor)
+    public void menuDonantes(GestorCampania gestor) throws DonarException
     {
         int opcion = 0;
 
@@ -53,7 +54,11 @@ public class MenuDonantes
                         vista.noCampaniaSeleccionada();
 
                     else
-                        ges.donarSangre(campania);
+                        try{
+                            ges.donarSangre(campania);
+                        }catch(DonarException e){
+                            System.out.println(e.getMessage());
+                        }
                     
                     break;
 

@@ -1,5 +1,7 @@
 package gestorcampania;
 
+import gestorcampania.herramientas.excepciones.DonarException;
+
 
 public class Donante {
     private String rut;
@@ -33,10 +35,16 @@ public class Donante {
         this.nombreDonante = nombreDonante;
     }
 
-    public void setDonacion(int donacion){
+    public void setDonacion(int donacion)throws DonarException{
+        if(donacion < 0){
+            throw new DonarException("ERROR, dato negativo ingresado ");
+        }
         this.donacion = donacion;
     }
-    public void setDonacion(double donacion){
+    public void setDonacion(double donacion)throws DonarException{
+        if(donacion < 0){
+            throw new DonarException("ERROR, dato negativo ingresado ");
+        }
         this.donacion = (int) (Math.round(donacion));
     }
 
@@ -44,8 +52,11 @@ public class Donante {
         this.tipoSangre = tipoSangre;
     }
 
-    public void donar(int donacion)
+    public void donar(int donacion) throws DonarException
     {
+        if(donacion < 0){
+            throw new DonarException("ERROR, dato negativo ingresado ");
+        }
         this.donacion += donacion;
     }
 
