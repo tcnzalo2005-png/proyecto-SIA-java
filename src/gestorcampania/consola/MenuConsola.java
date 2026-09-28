@@ -2,19 +2,18 @@ package gestorcampania.consola;
 
 import gestorcampania.GestorCampania;
 import gestorcampania.herramientas.Scan;
-import gestorcampania.herramientas.excepciones.DonarException;
 import gestorcampania.herramientas.excepciones.ScanException;
 
 public class MenuConsola
 {
-    Scan scan = new Scan();
-    VistaConsola vista = new VistaConsola();
+    private Scan scan = new Scan();
+    private VistaConsola vista = new VistaConsola();
 
-    MenuCampanias menuCamp = new MenuCampanias();
-    MenuDonantes menuDon = new MenuDonantes();
-    MenuConsultas menuCon = new MenuConsultas();
+    private MenuCampanias menuCamp = new MenuCampanias();
+    private MenuDonantes menuDon = new MenuDonantes();
+    private MenuConsultas menuCon = new MenuConsultas();
 
-    public void menu(GestorCampania gestor) throws DonarException
+    public void menu(GestorCampania gestor)
     {
         int opcion = 0;
 

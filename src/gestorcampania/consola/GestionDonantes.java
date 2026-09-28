@@ -10,9 +10,9 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class GestionDonantes
 {
-    Scan scan = new Scan();
-    VistaConsola vista = new VistaConsola();
-    GestionCampanias gesCamp = new GestionCampanias();
+    private Scan scan = new Scan();
+    private VistaConsola vista = new VistaConsola();
+    private GestionCampanias gesCamp = new GestionCampanias();
 
     public Campania seleccionarCampania(GestorCampania gestor)
     {

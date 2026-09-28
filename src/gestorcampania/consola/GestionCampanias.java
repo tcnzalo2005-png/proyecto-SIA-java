@@ -10,8 +10,8 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class GestionCampanias
 {
-    Scan scan = new Scan();
-    VistaConsola vista = new VistaConsola();
+    private Scan scan = new Scan();
+    private VistaConsola vista = new VistaConsola();
 
     public void crearCampania(GestorCampania gestor)
     {

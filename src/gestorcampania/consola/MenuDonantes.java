@@ -8,13 +8,13 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class MenuDonantes
 {
-    GestionDonantes ges = new GestionDonantes();
-    Scan scan = new Scan();
-    VistaConsola vista = new VistaConsola();
+    private GestionDonantes ges = new GestionDonantes();
+    private Scan scan = new Scan();
+    private VistaConsola vista = new VistaConsola();
 
     Campania campania = null;
 
-    public void menuDonantes(GestorCampania gestor) throws DonarException
+    public void menuDonantes(GestorCampania gestor)
     {
         int opcion = 0;
 

@@ -6,9 +6,9 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class MenuConsultas
 {
-    GestionConsultas ges = new GestionConsultas();
-    Scan scan = new Scan();
-    VistaConsola vista = new VistaConsola();
+    private GestionConsultas ges = new GestionConsultas();
+    private Scan scan = new Scan();
+    private VistaConsola vista = new VistaConsola();
 
     public void menuConsultas(GestorCampania gestor)
     {

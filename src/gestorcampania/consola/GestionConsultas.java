@@ -7,8 +7,8 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class GestionConsultas
 {
-    Scan scan = new Scan();
-    VistaConsola vista = new VistaConsola();
+    private Scan scan = new Scan();
+    private VistaConsola vista = new VistaConsola();
 
     public void totalSangreDonada(GestorCampania gestor)
     {
