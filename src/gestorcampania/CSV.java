@@ -17,7 +17,7 @@ public class CSV {
             FileWriter fw = new FileWriter(archivo);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write("idCampania,nombreCampania,fecha,tipoCampania,ubicacion,rut,nombreDonante,tipoSangre,donacion");
+            bw.write("idCampania;nombreCampania;fecha;tipoCampania;ubicacion;rut;nombreDonante;tipoSangre;donacion");
             bw.newLine();
 
             for (Campania campania : gestor.getListaCampanias()) {
