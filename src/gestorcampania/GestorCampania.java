@@ -4,17 +4,21 @@ import java.util.*;
 import java.time.LocalDate;
 import gestorcampania.consola.MenuConsola;
 
+/*clase principal para gestionar las campañas y los donantes*/
 public class GestorCampania { 
-    private ArrayList<Campania> listaCampanias; 
+    private ArrayList<Campania> listaCampanias;/*Arraylist para guardar cualquier tipo de campaña*/
      
+    /*Constructor*/
     public GestorCampania(){ 
         listaCampanias = new ArrayList<>(); 
     } 
 
+    /*METODO MALO CAMBIARLO CUANDO SE TERMINE DE ARREGLAR EL CVS*/
     public ArrayList<Campania> getListaCampanias(){
         return listaCampanias;
     }
  
+    /*Metodo para calcular el total de sangre donada */
     public int totalSangreDonada() { 
         int totalSangre = 0; 
         for(int i = 0 ; i < listaCampanias.size(); i++) { 
@@ -24,6 +28,7 @@ public class GestorCampania {
         return totalSangre; 
     }
 
+    /*Metodo para calcular el total de donantes*/
     public int totalDonadores(){
         int totalPersonas = 0;
 
@@ -35,6 +40,7 @@ public class GestorCampania {
         return totalPersonas;
     }
 
+    /*Metodo para calcular el total de sangre donada de un tipo*/
     public int totalSangreDonadaPorTipo(Sangre tipoSangre) {
         int totalPorTipo = 0;
         
@@ -46,6 +52,7 @@ public class GestorCampania {
         return totalPorTipo;
     }
     
+    /*Metodos crear campaña con sobrecarga de metodos para poner fechas actual o uno dado por el usuario*/
     public void crearCampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         if(buscarCampania(idCampania) != null){
             return;
@@ -81,6 +88,7 @@ public class GestorCampania {
         }
     }
 
+    /*Metodo para buscar una campaña especifica*/
     public Campania buscarCampania(int idBuscar){
         for(Campania i : listaCampanias){
             if(i.getIdCampania() == idBuscar){
@@ -89,12 +97,16 @@ public class GestorCampania {
         }
         return null;
     }
+    
+    /*Metodo para eliminar una compaña en especifica*/
     public void eliminarCampania(int idBuscar){
         Campania eliminar = buscarCampania(idBuscar);
         if(eliminar != null){
             listaCampanias.remove(eliminar);
         }
     }
+    
+    /*metodo para guardar toda la informacion de las campañas en un String para ser usado en la consola y ventanas*/
     public String mostrarCampania(){
         String cosa = "";
         for(Campania c : listaCampanias){
@@ -103,6 +115,9 @@ public class GestorCampania {
         }
         return cosa;
     }   
+    
+    /*Metodo modificar campañas con sobreCarga para modificar una campaña en especifica y si se ingreso una fecha por el usuario o el sistema 
+    le da la fecha actual*/
     public void modificarCampanias(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         Campania aModificar = buscarCampania(idCampania);
 
@@ -118,14 +133,15 @@ public class GestorCampania {
         }
     }
     
+   
 public static void main(String[] args){
 
-    GestorCampania gestor = new GestorCampania();
-    Scanner scanner = new Scanner(System.in);
+    GestorCampania gestor = new GestorCampania();   /*Crea el gestor*/
+    Scanner scanner = new Scanner(System.in);   /*crea el scanner*/
 
     CSV csv = new CSV("campanias.csv");
 
-    csv.cargarCSV(gestor);
+    csv.cargarCSV(gestor);/*Carga la informacion del CSV*/
 
     System.out.println("Ventana o consola");
     System.out.println("1.-Consola");

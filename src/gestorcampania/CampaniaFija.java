@@ -2,9 +2,11 @@ package gestorcampania;
 
 import java.time.LocalDate;
 
+/*Clase subtipo de campaña para crear campañas fijas*/
 public class CampaniaFija extends Campania {
-    private String ubicacion;
+    private String ubicacion;   /*Una campaña fija tiene unicamente una ubicacion*/
     
+    /*Constructor*/
     public CampaniaFija(int idCampania, String nombreCampania, LocalDate fecha, String ubicacion){
         super(idCampania, nombreCampania, fecha);
         this.ubicacion = ubicacion;
@@ -16,7 +18,9 @@ public class CampaniaFija extends Campania {
         return ubicacion;
     }
     
-
+    
+    /*Metodo sobreescrito y devuelve un tipo String con toda la informacion de la campaña ya que 
+    sirve para ser usada tanto en ventana como consola y haci se evita tener que retornar el arreglo completo*/
     @Override
     public String mostrarCampania(){
         return  "Id campaña: " + getIdCampania() +

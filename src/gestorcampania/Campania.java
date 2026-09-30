@@ -4,12 +4,15 @@ import gestorcampania.herramientas.excepciones.DonarException;
 import java.util.*;
 import java.time.LocalDate;
 
+    /*Clase abstracta para crear distintas tipos de campañas sin tener que poner denuevo todos los atributos
+    y metodos que tienen en comun*/
 public abstract class Campania {
-    private int idCampania;
-    private String nombreCampania;
-    private LocalDate fecha;
-    private HashMap<String, Donante> donantesPorRut;
+    private int idCampania; /*identificador unico*/
+    private String nombreCampania;  /*Nombr de la camáña*/
+    private LocalDate fecha;    /*Fecha de la campaña*/
+    private HashMap<String, Donante> donantesPorRut;    /*Un hashMap para guardar cada uno de los donantes mediante su rut*/
     
+    /*constructor*/
     public Campania(int idCampania, String nombreCampania , LocalDate fecha){
         this.idCampania = idCampania;
         this.nombreCampania = nombreCampania;
@@ -17,9 +20,11 @@ public abstract class Campania {
         this.donantesPorRut = new HashMap<>();
     }
     
+    /*METODO MALO QUITAR SOLAMENTE AL TENER EL CSV ARREGLADO*/
     public HashMap<String, Donante> getDonantes(){
     return donantesPorRut;
     }
+    
     public int getIdCampania(){
         return idCampania;
     }
@@ -38,6 +43,7 @@ public abstract class Campania {
         fecha = fechaAGuardar;
     }
     
+    /*Calcula el tota de la sangre de todos los donantes de una campaña*/
     public int totalSangre(){
         int totalSangre = 0;
         
@@ -47,6 +53,7 @@ public abstract class Campania {
         }
         return totalSangre;
     }
+    /*Se hace sobre carga para calcular el total de la sangre de los donantes pero por su tipo de sangre*/
     public int totalSangre(Sangre tipoSangre){
         int totalSangre = 0;
         for(Donante i : donantesPorRut.values()){
@@ -57,6 +64,7 @@ public abstract class Campania {
         return totalSangre;
     }
     
+    /*Calcula la cantidad total de donadores de la campaña*/
     public int totalDonadotres(){
         int total = 0;
         for(Donante i : donantesPorRut.values()){
@@ -64,6 +72,10 @@ public abstract class Campania {
         }
         return total;
     }
+    
+    /*En los metodos de crearDonante se usa sobreCarga para poder crear una campaña con una fecha especifica dada por el 
+    usuario y otro metodo sin fecha dada para que el sistema mismo lo de de forma automatica (la fecha actual)
+    */
     public void crearDonante(String rut, String nombreDonante, Sangre tipoSangre, int donacion){
         if(donantesPorRut.get(rut) != null){
             return;
@@ -82,14 +94,19 @@ public abstract class Campania {
     public void eliminarDonante(String rut){
         donantesPorRut.remove(rut);
     }
+    
+    
     public Donante buscarDonante(String rut)throws DonarException{
         Donante donante = donantesPorRut.get(rut);
         if(donante == null){
-            throw new DonarException("ERROR, no se encontro el donante ");
+            throw new DonarException("ERROR, no se encontro el donante ");  /*Por si no existe el donante buscado*/
         }
         return donante;
     }
     
+    /*Metodo que sirve para mostrar la informacion de los donantes pero todo en un tipo String para que sea usado tanto en 
+    ventana como en consola y no romper el principio de encapsulamiento
+    */
     public String mostrarDonante(){
         String cosa = "";
         for(Donante i : donantesPorRut.values()){
@@ -106,7 +123,7 @@ public abstract class Campania {
         }
     }
     
-
+    /*Clases abstractas ya que toda campaña si o si implementan estos metodos pero de forma difetentes*/
     public abstract String mostrarCampania();
     public abstract void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion);
 }
