@@ -8,12 +8,19 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class MenuDonantes
 {
+    // Objeto encargado de gestionar las operaciones relacionadas con donantes.
     private GestionDonantes ges = new GestionDonantes();
+
+    // Objeto encargado de gestionar la entrada de datos desde consola.
     private Scan scan = new Scan();
+
+    // Objeto encargado de mostrar mensajes y vistas por consola.
     private VistaConsola vista = new VistaConsola();
 
+    // Campaña actualmente seleccionada para realizar operaciones con donantes.
     Campania campania = null;
 
+    // Muestra el menú de donantes y ejecuta la opción seleccionada.
     public void menuDonantes(GestorCampania gestor)
     {
         int opcion = 0;
@@ -33,14 +40,17 @@ public class MenuDonantes
 
             switch(opcion)
             {
+                // Vuelve al menú anterior.
                 case 0:
                     vista.msjVolver();
                     break;
 
+                // Permite seleccionar la campaña sobre la que se realizarán las operaciones.
                 case 1:
                     campania = ges.seleccionarCampania(gestor);
                     break;
 
+                // Crea un nuevo donante en la campaña seleccionada.
                 case 2:
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
@@ -49,6 +59,7 @@ public class MenuDonantes
                         ges.crearDonante(campania);
 
                     break;
+                // Registra una donación de sangre para un donante de la campaña seleccionada.
                 case 3:
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
@@ -62,6 +73,7 @@ public class MenuDonantes
                     
                     break;
 
+                // Muestra los donantes registrados en la campaña seleccionada.
                 case 4:
                     if(campania == null)
                         vista.noCampaniaEncontrada(opcion);
@@ -71,6 +83,7 @@ public class MenuDonantes
 
                     break;
 
+                // Busca un donante dentro de la campaña seleccionada.
                 case 5:
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
@@ -80,6 +93,7 @@ public class MenuDonantes
 
                     break;
 
+                // Permite modificar los datos de un donante de la campaña seleccionada.
                 case 6:
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
@@ -89,6 +103,7 @@ public class MenuDonantes
 
                     break;
 
+                // Permite eliminar un donante de la campaña seleccionada.
                 case 7: 
                     if(campania == null)
                         vista.noCampaniaSeleccionada();
@@ -98,6 +113,7 @@ public class MenuDonantes
                     
                     break;
 
+                // Informa que la opción ingresada no es válida.
                 default:
                     vista.entradaInvalida();
             }

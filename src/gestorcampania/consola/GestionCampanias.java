@@ -10,9 +10,13 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class GestionCampanias
 {
+    // Objeto encargado de gestionar la entrada de datos desde consola.
     private Scan scan = new Scan();
+
+    // Objeto encargado de mostrar mensajes y vistas por consola.
     private VistaConsola vista = new VistaConsola();
 
+    // Permite seleccionar el tipo de campaña que se desea crear.
     public void crearCampania(GestorCampania gestor)
     {
         int tipo = 0;
@@ -32,18 +36,22 @@ public class GestionCampanias
 
             switch(tipo)
             {
+                // Permite volver al menú anterior.
                 case 0:
                     vista.msjVolver();
                     break;
 
+                // Inicia el proceso de creación de una campaña fija.
                 case 1:
                     crearCampaniaFija(gestor);
                     break;
 
+                // Inicia el proceso de creación de una campaña móvil.
                 case 2:
                     crearCampaniaMovil(gestor);
                     break;
 
+                // Muestra un mensaje cuando la opción ingresada no es válida.
                 default:
                     vista.msjSalir();
             }
@@ -51,6 +59,7 @@ public class GestionCampanias
         while(tipo != 0);
     }
 
+    // Solicita los datos necesarios para crear una campaña fija.
     private void crearCampaniaFija(GestorCampania gestor)
     {
         int id = 0;
@@ -85,15 +94,18 @@ public class GestionCampanias
 
             switch(opcion)
             {
+                // Crea la campaña utilizando la fecha actual.
                 case 1:
                     gestor.crearCampaniaFija(id, nombre, ubicacion);    
                     break;
 
+                // Solicita una fecha específica para la campaña.
                 case 2:
                     LocalDate fecha = solicitarFecha();
                     gestor.crearCampaniaFija(id, nombre, fecha, ubicacion);
                     break;
 
+                // Informa que la opción ingresada no es válida.
                 default:
                     vista.entradaInvalida();
             }
@@ -101,6 +113,7 @@ public class GestionCampanias
         while(opcion != 1 && opcion != 2);
     }
 
+    // Solicita los datos necesarios para crear una campaña móvil.
     private void crearCampaniaMovil(GestorCampania gestor)
     {
         int id = 0;
@@ -135,15 +148,18 @@ public class GestionCampanias
 
             switch(opcion)
             {
+                // Crea la campaña utilizando la fecha actual.
                 case 1:
                     gestor.crearCampaniaMovil(id, nombre, ubicacion);    
                     break;
 
+                // Solicita una fecha específica para la campaña.
                 case 2:
                     LocalDate fecha = solicitarFecha();
                     gestor.crearCampaniaMovil(id, nombre, fecha, ubicacion);
                     break;
 
+                // Informa que la opción ingresada no es válida.
                 default:
                     vista.entradaInvalida();
             }
@@ -151,6 +167,7 @@ public class GestionCampanias
         while(opcion != 1 && opcion != 2);
     }
 
+    // Solicita al usuario una fecha y la convierte en un objeto LocalDate.
     private LocalDate solicitarFecha()
     {
         while(true)
@@ -165,10 +182,12 @@ public class GestionCampanias
 
                 return fecha;
             }
+            // Maneja errores producidos al ingresar datos que no pueden convertirse a números.
             catch(ScanException e)
             {
                 vista.entradaInvalida();
             }
+            // Maneja fechas que no existen o que están fuera del rango permitido por LocalDate.
             catch(DateTimeException e)
             {
                 vista.fechaInvalida();
@@ -176,6 +195,7 @@ public class GestionCampanias
         }
     }
 
+    // Busca una campaña mediante su identificador y la devuelve si existe.
     public Campania buscarCampania(GestorCampania gestor)
     {
         int id = 0;
@@ -198,6 +218,7 @@ public class GestionCampanias
 
                 return campania;
             }
+            // Permite volver a solicitar el identificador cuando la entrada no es válida.
             catch(ScanException e)
             {
                 vista.entradaInvalida();
@@ -205,6 +226,7 @@ public class GestionCampanias
         }
     }
 
+    // Busca una campaña existente y solicita los nuevos datos para modificarla.
     public void modificarCampania(GestorCampania gestor)
     {
         int opcion = 0;
@@ -231,15 +253,18 @@ public class GestionCampanias
 
             switch(opcion)
             {
+                // Modifica la campaña utilizando la fecha actual.
                 case 1:
                     campania.modificarCampania(nombre, LocalDate.now(), ubicacion);  
                     break;
 
+                // Modifica la campaña utilizando una fecha ingresada por el usuario.
                 case 2:
                     LocalDate fecha = solicitarFecha();
                     campania.modificarCampania(nombre, fecha, ubicacion);
                     break;
 
+                // Informa que la opción ingresada no es válida.
                 default:
                     vista.entradaInvalida();
             }
@@ -247,6 +272,7 @@ public class GestionCampanias
         while(opcion != 1 && opcion != 2);
     }
 
+    // Busca una campaña mediante su identificador y la elimina si existe.
     public void eliminarCampania(GestorCampania gestor)
     {
         int id = 0;
@@ -264,6 +290,7 @@ public class GestionCampanias
             id = -1;
         }
 
+        // Finaliza la operación si la entrada no fue válida.
         if(id == -1)
         {
             vista.msjVolver();
@@ -274,10 +301,12 @@ public class GestionCampanias
         if(campania == null)
             vista.noCampaniaEncontrada(id);
         
+        // Elimina la campaña encontrada.
         else
             gestor.eliminarCampania(id);
     }
 
+    // Muestra en consola la información de las campañas registradas.
     public void listarCampanias(GestorCampania gestor)
     {
         vista.vistaListarCampania();
