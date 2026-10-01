@@ -10,10 +10,16 @@ import gestorcampania.herramientas.excepciones.ScanException;
 
 public class GestionDonantes
 {
+    // Objeto encargado de gestionar la entrada de datos desde consola.
     private Scan scan = new Scan();
+
+    // Objeto encargado de mostrar mensajes y vistas por consola.
     private VistaConsola vista = new VistaConsola();
+
+    // Objeto encargado de gestionar las operaciones relacionadas con campañas.
     private GestionCampanias gesCamp = new GestionCampanias();
 
+    // Permite seleccionar una campaña mediante su identificador.
     public Campania seleccionarCampania(GestorCampania gestor)
     {
         Campania campania = gesCamp.buscarCampania(gestor);
@@ -21,6 +27,7 @@ public class GestionDonantes
         return campania;
     }
 
+    // Solicita los datos necesarios para registrar un nuevo donante en una campaña.
     public void crearDonante(Campania campania)
     {
         int opcion = 0;
@@ -46,9 +53,11 @@ public class GestionDonantes
         }
         while(opcion < 1 || 8 < opcion );
 
+        // Registra el donante utilizando los datos ingresados.
         campania.crearDonante(rut, nombre, sangre);
     }
 
+    // Busca un donante mediante su RUT y muestra sus datos.
     public Donante buscarDonante(Campania campania)
     {
         Donante donante = null;
@@ -69,6 +78,7 @@ public class GestionDonantes
         return donante;
     }
 
+    // Busca un donante existente y solicita los nuevos datos para modificarlo.
     public void modificarDonante(Campania campania)
     {
         int opcion = 0;
@@ -106,9 +116,11 @@ public class GestionDonantes
         }
         while(opcion < 1 || 8 < opcion);
         
+        // Actualiza los datos del donante seleccionado.
         campania.modificarDonante(donante.getRut(), nombre, sangre);
     }
 
+    // Busca un donante mediante su RUT y lo elimina de la campaña.
     public void eliminarDonante(Campania campania)
     {
         vista.vistaEliminarDonante();
@@ -124,11 +136,13 @@ public class GestionDonantes
         campania.eliminarDonante(rut);
     }
 
+    // Muestra todos los donantes registrados en la campaña.
     public void listarDonantes(Campania campania)
     {
         System.out.println(campania.mostrarDonante());
     }
 
+    // Solicita la cantidad de sangre donada y registra la donación del donante.
     public void donarSangre(Campania campania) throws DonarException
     {
         int donacion = 0;
@@ -153,6 +167,7 @@ public class GestionDonantes
         }
 
        
+        // Registra la cantidad de sangre donada por el donante.
         donante.donar(donacion);
     }
 }
