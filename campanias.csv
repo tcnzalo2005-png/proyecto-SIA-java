@@ -1,4 +1,4 @@
-idCampania,nombreCampania,fecha,tipoCampania,ubicacion,rut,nombreDonante,tipoSangre,donacion
+idCampania;nombreCampania;fecha;tipoCampania;ubicacion;rut;nombreDonante;tipoSangre;donacion
 12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,18.442.109-3,Matia Silva,A_NEGATIVO,400
 12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,21.010.213-2,Benjamin Concha,A_POSITIVO,500
 12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,17.432.190-1,Javier Fuentes,O_POSITIVO,450
