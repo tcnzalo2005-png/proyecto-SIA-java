@@ -13,11 +13,7 @@ public class GestorCampania {
         listaCampanias = new ArrayList<>(); 
     } 
 
-    /*METODO MALO CAMBIARLO CUANDO SE TERMINE DE ARREGLAR EL CVS*/
-    
-    public ArrayList<Campania> getListaCampanias(){
-        return listaCampanias;
-    }
+   
  
     /*Metodo para calcular el total de sangre donada */
     public int totalSangreDonada() { 

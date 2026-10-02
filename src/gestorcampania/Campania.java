@@ -20,11 +20,6 @@ public abstract class Campania {
         this.donantesPorRut = new HashMap<>();
     }
     
-    /*METODO MALO QUITAR SOLAMENTE AL TENER EL CSV ARREGLADO*/
-    
-    public HashMap<String, Donante> getDonantes(){
-    return donantesPorRut;
-    }
     
     public int getIdCampania(){
         return idCampania;
