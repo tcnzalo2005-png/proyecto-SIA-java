@@ -35,4 +35,16 @@ public class CampaniaFija extends Campania {
         setFecha(fecha);
         setUbicacion(ubicacion);
     }
+
+        /*Tipo de campaña para el CSV*/
+    @Override
+    public String getTipoCSV(){
+        return "Fija";
+    }
+
+    /*Ubicacion de la campaña para el CSV*/
+    @Override
+    public String getUbicacionesCSV(){
+        return ubicacion;
+    }
 }
