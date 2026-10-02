@@ -122,8 +122,31 @@ public abstract class Campania {
             d.modificarDonante(nombreDonante, tipoSangre);
         }
     }
+
+        /*Devuelve las lineas CSV de la campaña: una por donante, o una sola con los
+    campos de donante vacios si no tiene donantes*/
+    public String lineasCSV(){
+        String base = idCampania + ";" + nombreCampania + ";" + fecha + ";" +
+                      getTipoCSV() + ";" + getUbicacionesCSV() + ";";
+        StringBuilder lineas = new StringBuilder();
+
+        if(donantesPorRut.isEmpty()){
+            lineas.append(base).append(";;;").append("\n");
+        } else {
+            for(Donante d : donantesPorRut.values()){
+                lineas.append(base).append(d.formatoCSV()).append("\n");
+            }
+        }
+        return lineas.toString();
+    }
     
     /*Clases abstractas ya que toda campaña si o si implementan estos metodos pero de forma difetentes*/
     public abstract String mostrarCampania();
     public abstract void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion);
+
+    /*Cada subtipo indica su tipo ("Fija" o "Movil") para el CSV*/
+    public abstract String getTipoCSV();
+
+    /*Cada subtipo entrega su(s) ubicacion(es) como texto para el CSV*/
+    public abstract String getUbicacionesCSV();
 }
