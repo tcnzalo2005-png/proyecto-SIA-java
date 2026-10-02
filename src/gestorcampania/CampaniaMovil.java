@@ -20,12 +20,6 @@ public class CampaniaMovil extends Campania {
     public void setUbicacion(String ubicacion){
         this.ubicaciones.add(ubicacion);
     }
-    
-    
-     /*METODO MALO QUITAR SOLAMENTE AL TENER EL CSV ARREGLADO*/
-    public ArrayList<String> getUbicaciones(){
-        return ubicaciones;
-    }
 
     @Override
     public void modificarCampania(String nombreCampania, LocalDate fecha, String ubicacion){
@@ -50,5 +44,16 @@ public class CampaniaMovil extends Campania {
         }
 
         return datos;
+    }
+        /*Tipo de campaña para el CSV*/
+    @Override
+    public String getTipoCSV(){
+        return "Movil";
+    }
+
+    /*Une todas las ubicaciones con "|" para guardarlas en una sola columna del CSV*/
+    @Override
+    public String getUbicacionesCSV(){
+        return String.join("|", ubicaciones);
     }
 }
