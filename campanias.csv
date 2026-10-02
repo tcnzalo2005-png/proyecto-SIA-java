@@ -1,54 +1,42 @@
 idCampania;nombreCampania;fecha;tipoCampania;ubicacion;rut;nombreDonante;tipoSangre;donacion
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,18.442.109-3,Matia Silva,A_NEGATIVO,400
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,21.010.213-2,Benjamin Concha,A_POSITIVO,500
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,17.432.190-1,Javier Fuentes,O_POSITIVO,450
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,18.721.554-7,Fernanda Sepulveda,O_POSITIVO,500
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,22.341.002-5,Valentina Castro,AB_POSITIVO,400
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,19.823.411-K,Sofia Morales,O_POSITIVO,450
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,20.477.599-0,Papua nueva guinea,B_NEGATIVO,0
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,20.155.932-1,Camila Rojas,B_POSITIVO,500
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,17.910.334-8,Cristobal Araya,O_NEGATIVO,450
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,21.936.307-9,Nicolas Castellano,A_NEGATIVO,3000
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,20.892.110-9,Diego Godoy,B_NEGATIVO,400
-12,Campania Gomez Carreno,2026-09-11,Movil,Gomez Carreno|Plaza Vina|viña del mar,19.102.883-4,Nicolas Munoz,A_POSITIVO,450
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,21.010.213-2,Benjamin Concha,A_POSITIVO,450
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,15.892.443-2,Roberto Gomez,O_POSITIVO,450
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,16.543.210-8,Gonzalo Tapia,A_POSITIVO,400
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,19.823.411-K,Sofia Morales,O_POSITIVO,500
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,18.223.901-4,Paula Navarrete,AB_NEGATIVO,500
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,18.990.213-0,Ignacio Parra,A_POSITIVO,400
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,20.155.932-1,Camila Rojas,B_POSITIVO,450
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,20.892.110-9,Diego Godoy,B_NEGATIVO,450
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,19.102.883-4,Nicolas Munoz,A_POSITIVO,400
-25,Hospital Fricke Fijo,2026-08-20,Fija,Hospital Gustavo Fricke,22.119.832-7,Isadora Olivares,O_NEGATIVO,500
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,18.442.109-3,Matia Silva,A_NEGATIVO,450
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,21.010.213-2,Benjamin Concha,A_POSITIVO,500
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,17.432.190-1,Javier Fuentes,O_POSITIVO,500
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,18.721.554-7,Fernanda Sepulveda,O_POSITIVO,400
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,22.341.002-5,Valentina Castro,AB_POSITIVO,450
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,16.543.210-8,Gonzalo Tapia,A_POSITIVO,450
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,19.823.411-K,Sofia Morales,O_POSITIVO,400
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,17.910.334-8,Cristobal Araya,O_NEGATIVO,400
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,19.554.321-9,Esteban Soto,O_POSITIVO,500
-30,Ruta Universitaria PUCV,2026-08-25,Movil,Sede Curauma|Casa Central|Sede Sausalito,20.432.119-6,Daniela Molina,B_POSITIVO,450
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,15.892.443-2,Roberto Gomez,O_POSITIVO,450
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,18.223.901-4,Paula Navarrete,AB_NEGATIVO,450
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,18.990.213-0,Ignacio Parra,A_POSITIVO,450
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,20.155.932-1,Camila Rojas,B_POSITIVO,500
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,17.910.334-8,Cristobal Araya,O_NEGATIVO,400
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,20.892.110-9,Diego Godoy,B_NEGATIVO,500
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,22.119.832-7,Isadora Olivares,O_NEGATIVO,400
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,19.554.321-9,Esteban Soto,O_POSITIVO,450
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,20.432.119-6,Daniela Molina,B_POSITIVO,500
-42,Centro Donacion Quilpue,2026-09-01,Fija,Consultorio Central Quilpue,19.102.883-4,Nicolas Munoz,A_POSITIVO,400
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,18.442.109-3,Matia Silva,A_NEGATIVO,500
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,21.010.213-2,Benjamin Concha,A_POSITIVO,400
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,17.432.190-1,Javier Fuentes,O_POSITIVO,450
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,18.721.554-7,Fernanda Sepulveda,O_POSITIVO,400
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,22.341.002-5,Valentina Castro,AB_POSITIVO,450
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,16.543.210-8,Gonzalo Tapia,A_POSITIVO,450
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,19.823.411-K,Sofia Morales,O_POSITIVO,500
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,18.223.901-4,Paula Navarrete,AB_NEGATIVO,400
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,20.155.932-1,Camila Rojas,B_POSITIVO,500
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,21.936.307-9,Nicolas Castellano,A_POSITIVO,1000
-55,Colecta Movil Concón,2026-09-05,Movil,Plaza Becquer|Playa Amarilla,22.119.832-7,Isadora Olivares,O_NEGATIVO,450
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;22345678-3;Lucas Fernández;B_NEGATIVO;400
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;20123456-7;María González;O_NEGATIVO;500
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;16543210-9;Camila Tapia;A_NEGATIVO;450
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;18765432-1;Carlos Rojas;B_POSITIVO;400
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;19876543-2;Juan Pérez;A_POSITIVO;450
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;15432109-8;Valentina Castro;AB_POSITIVO;450
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;21456789-0;Ana Silva;AB_NEGATIVO;450
+1;Campaña Centro Valparaíso;2026-03-15;Fija;Plaza Victoria 123;17654321-K;Diego Morales;O_POSITIVO;500
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;20456789-7;Nicolás Olivares;A_POSITIVO;500
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;21876543-2;Isidora Espinoza;B_POSITIVO;450
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;17345678-9;Benjamín Torres;A_NEGATIVO;500
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;22876543-1;Joaquín Lara;AB_POSITIVO;400
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;16789012-K;Fernanda Valenzuela;O_POSITIVO;450
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;19654321-8;Antonia Godoy;B_NEGATIVO;450
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;20987654-3;Sofia Araya;A_POSITIVO;450
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;19123456-4;Gabriel Sepúlveda;O_POSITIVO;500
+2;Ruta Solidaria Costa;2026-04-10;Movil;Avenida Brasil 456|Plaza Aníbal Pinto|Muelle Prat;18234567-5;Matías Fuentes;O_NEGATIVO;400
+3;Jornada PUCV Casa Central;2026-05-20;Fija;Avenida Brasil 2950;16432109-5;Gonzalo Reyes;O_POSITIVO;500
+3;Jornada PUCV Casa Central;2026-05-20;Fija;Avenida Brasil 2950;20876543-1;Felipe Soto;B_POSITIVO;400
+3;Jornada PUCV Casa Central;2026-05-20;Fija;Avenida Brasil 2950;18543210-6;Francisca Palma;O_POSITIVO;450
+3;Jornada PUCV Casa Central;2026-05-20;Fija;Avenida Brasil 2950;21234567-8;Tomás Navarro;A_POSITIVO;450
+3;Jornada PUCV Casa Central;2026-05-20;Fija;Avenida Brasil 2950;19765432-3;Javiera Bravo;O_NEGATIVO;500
+3;Jornada PUCV Casa Central;2026-05-20;Fija;Avenida Brasil 2950;17890123-4;Constanza Vera;AB_NEGATIVO;450
+3;Jornada PUCV Casa Central;2026-05-20;Fija;Avenida Brasil 2950;22123456-7;Martina Campos;A_NEGATIVO;450
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;19890123-5;Esperanza Guzman;B_NEGATIVO;450
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;22543210-4;Ignacio Henríquez;O_POSITIVO;400
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;21654321-9;Paula Miranda;O_NEGATIVO;450
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;18901234-k;Renata Zúñiga;O_POSITIVO;450
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;18345678-0;Cristóbal Paredes;B_POSITIVO;400
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;16890123-7;Catalina Salinas;A_NEGATIVO;450
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;19456789-2;Sebastián Contreras;O_POSITIVO;500
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;20321098-6;Maximiliano Saavedra;A_POSITIVO;500
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;20765432-1;Daniela Figueroa;A_POSITIVO;450
+4;Colecta Móvil Viña del Mar;2026-06-05;Movil;Reloj de Flores|Plaza Vergara|15 Norte;17234567-8;Rodrigo Gallardo;AB_POSITIVO;500
+5;Campaña Hospital Fricke;2026-07-12;Fija;Alvarez 1532;21321098-4;Florencia Medina;B_POSITIVO;450
+5;Campaña Hospital Fricke;2026-07-12;Fija;Alvarez 1532;19321098-7;Vicente Carrasco;O_POSITIVO;450
+5;Campaña Hospital Fricke;2026-07-12;Fija;Alvarez 1532;18456789-5;Esteban Toledo;O_NEGATIVO;400
+5;Campaña Hospital Fricke;2026-07-12;Fija;Alvarez 1532;22432109-1;Emilio Venegas;O_POSITIVO;400
+5;Campaña Hospital Fricke;2026-07-12;Fija;Alvarez 1532;16321098-2;Rocío Aguilera;A_NEGATIVO;450
+5;Campaña Hospital Fricke;2026-07-12;Fija;Alvarez 1532;17543210-3;Álvaro Cortés;AB_POSITIVO;500
+5;Campaña Hospital Fricke;2026-07-12;Fija;Alvarez 1532;20654321-6;Amanda Pizarro;A_POSITIVO;500

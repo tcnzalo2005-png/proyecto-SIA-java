@@ -21,6 +21,7 @@ public abstract class Campania {
     }
     
     /*METODO MALO QUITAR SOLAMENTE AL TENER EL CSV ARREGLADO*/
+    
     public HashMap<String, Donante> getDonantes(){
     return donantesPorRut;
     }

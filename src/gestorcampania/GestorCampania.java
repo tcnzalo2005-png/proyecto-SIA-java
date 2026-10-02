@@ -14,6 +14,7 @@ public class GestorCampania {
     } 
 
     /*METODO MALO CAMBIARLO CUANDO SE TERMINE DE ARREGLAR EL CVS*/
+    
     public ArrayList<Campania> getListaCampanias(){
         return listaCampanias;
     }
