@@ -77,4 +77,8 @@ public class Donante {
         setTipoSangre(tipoSangre);
         
     }
+    /*Devuelve los datos del donante en formato CSV: rut;nombre;tipoSangre;donacion*/
+    public String formatoCSV(){
+        return rut + ";" + nombreDonante + ";" + tipoSangre + ";" + donacion;
+    }
 }
