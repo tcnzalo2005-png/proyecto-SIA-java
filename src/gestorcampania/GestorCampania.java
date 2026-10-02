@@ -132,7 +132,14 @@ public class GestorCampania {
             aModificar.modificarCampania(nombreCampania, LocalDate.now(), ubicacion);
         }
     }
-    
+        /*Devuelve todas las campañas y sus donantes en formato CSV (sin encabezado)*/
+    public String exportarCSV(){
+        StringBuilder datos = new StringBuilder();
+        for(Campania c : listaCampanias){
+            datos.append(c.lineasCSV());
+        }
+        return datos.toString();
+    }
    
 public static void main(String[] args){
 
