@@ -11,71 +11,13 @@ public class CSV {
         this.archivo = archivo;
     }
 
+    /*Guarda todas las campañas y donantes en el archivo CSV*/
     public void guardarCSV(GestorCampania gestor) {
-
-        try {
-            FileWriter fw = new FileWriter(archivo);
-            BufferedWriter bw = new BufferedWriter(fw);
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
 
             bw.write("idCampania;nombreCampania;fecha;tipoCampania;ubicacion;rut;nombreDonante;tipoSangre;donacion");
             bw.newLine();
-
-            for (Campania campania : gestor.getListaCampanias()) {
-
-                String tipoCampania;
-                String ubicacion = "";
-
-                if (campania instanceof CampaniaFija) {
-                    tipoCampania = "Fija";
-                    ubicacion = ((CampaniaFija) campania).getUbicacion();
-                } else {
-                    tipoCampania = "Movil";
-
-                    CampaniaMovil movil = (CampaniaMovil) campania;
-
-                    for (String u : movil.getUbicaciones()) {
-                        if (ubicacion.equals("")) {
-                            ubicacion = u;
-                        } else {
-                            ubicacion += "|" + u;
-                        }
-                    }
-                }
-
-                if (campania.getDonantes().isEmpty()) {
-
-                    bw.write(
-                        campania.getIdCampania() + "," +
-                        campania.getNombreCampania() + "," +
-                        campania.getFecha() + "," +
-                        tipoCampania + "," +
-                        ubicacion + ",,,,"
-                    );
-
-                    bw.newLine();
-
-                } else {
-
-                    for (Donante donante : campania.getDonantes().values()) {
-
-                        bw.write(
-                            campania.getIdCampania() + "," +
-                            campania.getNombreCampania() + "," +
-                            campania.getFecha() + "," +
-                            tipoCampania + "," +
-                            ubicacion + "," +
-                            donante.getRut() + "," +
-                            donante.getNombreDonante() + "," +
-                            donante.getTipoSangre() + "," +
-                            donante.getDonacion()
-                        );
-
-                        bw.newLine();
-                    }
-                }
-            }
-
-            bw.close();
+            bw.write(gestor.exportarCSV());
 
             System.out.println("Archivo CSV guardado correctamente.");
 
@@ -94,7 +36,7 @@ public class CSV {
 
             while ((linea = br.readLine()) != null) {
 
-                String[] datos = linea.split(",", -1);
+                String[] datos = linea.split(";", -1);
 
                 int idCampania = Integer.parseInt(datos[0]);
                 String nombreCampania = datos[1];
